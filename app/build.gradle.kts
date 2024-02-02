@@ -3,6 +3,7 @@ plugins {
     id("org.jetbrains.kotlin.android")
     id("kotlin-android")
     id("kotlin-kapt")
+    id("com.google.devtools.ksp")
     id("dagger.hilt.android.plugin")
 }
 
@@ -43,7 +44,7 @@ android {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.4.3"
+        kotlinCompilerExtensionVersion = "1.5.8"
     }
     packaging {
         resources {
@@ -55,13 +56,13 @@ android {
 dependencies {
 
     // Coroutines
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3")
 
 
     // Material design
-    implementation("androidx.compose.material:material:1.3.0")
-    implementation("androidx.compose.material:material-icons-extended:1.3.0")
-    implementation("com.google.android.material:material:1.7.0")
+    implementation("androidx.compose.material:material:1.6.0")
+    implementation("androidx.compose.material:material-icons-extended:1.6.0")
+    implementation("com.google.android.material:material:1.11.0")
 
     // Hilt dependency injection
     implementation ("com.google.dagger:hilt-android:2.43.2")
@@ -70,19 +71,19 @@ dependencies {
     implementation ("androidx.hilt:hilt-navigation-compose:1.0.0")
 
     // Okhttp3
-    implementation("com.squareup.okhttp3:okhttp:4.9.1")
-    api("com.squareup.okhttp3:logging-interceptor:4.9.1")
+    implementation("com.squareup.okhttp3:okhttp:4.11.0")
+    api("com.squareup.okhttp3:logging-interceptor:4.10.0")
 
     // Retrofit2 and Moshi
     api("com.squareup.retrofit2:retrofit:2.9.0")
     implementation("com.squareup.retrofit2:converter-moshi:2.9.0")
 
     // Room Persistence
-    implementation("androidx.room:room-ktx:2.4.3")
-    kapt("androidx.room:room-compiler:2.4.3")
+    implementation("androidx.room:room-ktx:2.6.1")
+    ksp("androidx.room:room-compiler:2.6.1")
 
     // Compose navigation
-    implementation("androidx.navigation:navigation-compose:2.6.0-alpha03")
+    implementation("androidx.navigation:navigation-compose:2.8.0-alpha01")
 
     // Navigation animation
     implementation("com.google.accompanist:accompanist-navigation-animation:0.25.1")
@@ -91,13 +92,13 @@ dependencies {
     implementation("com.google.accompanist:accompanist-pager:0.25.1")
 
     // Coil
-    implementation("io.coil-kt:coil:2.2.0")
-    implementation("io.coil-kt:coil-compose:2.2.0")
+    implementation("io.coil-kt:coil:2.4.0")
+    implementation("io.coil-kt:coil-compose:2.4.0")
     implementation("io.coil-kt:coil-svg:2.2.0")
 
 
 
-    implementation("androidx.core:core-ktx:1.9.0")
+    implementation("androidx.core:core-ktx:1.12.0")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.7.0")
     implementation("androidx.activity:activity-compose:1.8.2")
     implementation(platform("androidx.compose:compose-bom:2023.03.00"))
@@ -117,8 +118,8 @@ dependencies {
     testImplementation("io.mockk:mockk:1.12.5")
 
     // Coroutines testing
-    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.4")
-    testImplementation("androidx.arch.core:core-testing:2.1.0")
+    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.3")
+    testImplementation("androidx.arch.core:core-testing:2.2.0")
 
     // Kotest
     testImplementation("io.kotest:kotest-assertions-core:5.4.2")
