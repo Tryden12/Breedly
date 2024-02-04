@@ -1,9 +1,9 @@
 package com.tryden.breedly.data.remote
 
 import android.util.Log
-import com.tryden.breedly.data.Resource
 import com.tryden.breedly.data.remote.dto.DogBreedResponse
 import com.tryden.breedly.data.remote.service.DogsApi
+import com.tryden.breedly.utils.Resource
 import javax.inject.Inject
 
 
@@ -22,17 +22,17 @@ constructor(val dogsApi: DogsApi) : RemoteSource {
                     res.body()?.let { breedList ->
                         Log.d("RemoteDataSource", "Breed list: ${breedList.size}" )
                         return Resource.Success(data = breedList)
-                    } ?: return Resource.DataError(errorCode = res.code())
+                    } ?: return Resource.Error()
                 }
                 false -> {
                     Log.d("RemoteDataSource", "Breed list: 0 -> NOT SUCCESSFUL, res code: ${res.code()}" )
-                    return Resource.DataError(errorCode = res.code())
+                    return Resource.Error()
                 }
             }
 
-        } catch (e: Exception) {
-            Log.e("RemoteDataSource", "Breed list: Exception hash code: ${e.hashCode()}")
-            return Resource.DataError(errorCode = e.hashCode())
+        } catch (exception: Exception) {
+            Log.e("RemoteDataSource", "Breed list Exception: $exception")
+            return Resource.Error(throwable = exception)
         }
     }
 
@@ -45,17 +45,17 @@ constructor(val dogsApi: DogsApi) : RemoteSource {
                     res.body()?.let { breedList ->
                         Log.d("RemoteDataSource", "Search Breed list: ${breedList.size}" )
                         return Resource.Success(data = breedList)
-                    } ?: return Resource.DataError(errorCode = res.code())
+                    } ?: return Resource.Error()
                 }
                 false -> {
                     Log.d("RemoteDataSource", "Search Breed list: 0 -> NOT SUCCESSFUL, res code: ${res.code()}" )
-                    return Resource.DataError(errorCode = res.code())
+                    return Resource.Error()
                 }
             }
 
-        } catch (e: Exception) {
-            Log.e("RemoteDataSource", "Search Breed list: Exception hash code: ${e.hashCode()}")
-            return Resource.DataError(errorCode = e.hashCode())
+        } catch (exception: Exception) {
+            Log.e("RemoteDataSource", "Search Breed list Exception: $exception")
+            return Resource.Error(throwable = exception)
         }
     }
 }

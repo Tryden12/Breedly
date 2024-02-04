@@ -1,7 +1,7 @@
 package com.tryden.breedly.data.remote
 
-import com.tryden.breedly.data.Resource
 import com.tryden.breedly.data.remote.dto.DogBreedResponse
+import com.tryden.breedly.utils.Resource
 
 interface RemoteSource {
 
