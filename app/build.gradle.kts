@@ -64,9 +64,8 @@ dependencies {
     implementation("com.google.android.material:material:1.11.0")
 
     // Hilt dependency injection
-    implementation ("com.google.dagger:hilt-android:2.43.2")
-    implementation ("androidx.appcompat:appcompat:1.5.1")
-    kapt ("com.google.dagger:hilt-compiler:2.43.2")
+    implementation ("com.google.dagger:hilt-android:2.50")
+    kapt ("com.google.dagger:hilt-compiler:2.50")
     implementation ("androidx.hilt:hilt-navigation-compose:1.0.0")
 
     // Moshi
@@ -109,6 +108,8 @@ dependencies {
     implementation("androidx.compose.ui:ui-graphics")
     implementation("androidx.compose.ui:ui-tooling-preview")
     implementation("androidx.compose.material3:material3")
+    implementation("androidx.appcompat:appcompat:1.6.1")
+
 
     // Testing
     testImplementation("junit:junit:4.13.2")
