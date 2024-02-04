@@ -58,7 +58,6 @@ dependencies {
     // Coroutines
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3")
 
-
     // Material design
     implementation("androidx.compose.material:material:1.6.0")
     implementation("androidx.compose.material:material-icons-extended:1.6.0")
@@ -69,6 +68,10 @@ dependencies {
     implementation ("androidx.appcompat:appcompat:1.5.1")
     kapt ("com.google.dagger:hilt-compiler:2.43.2")
     implementation ("androidx.hilt:hilt-navigation-compose:1.0.0")
+
+    // Moshi
+    implementation("com.squareup.retrofit2:converter-moshi:2.9.0")
+    implementation("com.squareup.moshi:moshi-kotlin:1.12.0")
 
     // Okhttp3
     implementation("com.squareup.okhttp3:okhttp:4.11.0")
