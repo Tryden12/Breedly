@@ -6,5 +6,8 @@ object Constants {
     const val API_KEY_NAME = "X-Api-Key"
     const val API_KEY_VALUE = "uQMzA1oELLsTA/b4LM1pOQ==cL4MiVL01VrZk1hD"
     const val DB_NAME = "dog_breeds_db"
-    const val RES_ERROR = "RESPONSE ERROR"
+
+    const val HOME = "home"
+    const val DETAILS = "details"
+    const val FAVORITES = "favorites"
 }

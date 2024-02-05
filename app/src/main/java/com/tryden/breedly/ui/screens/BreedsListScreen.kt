@@ -4,6 +4,7 @@ import android.util.Log
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.ui.Modifier
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.tryden.breedly.domain.model.DogBreed
 import com.tryden.breedly.viewmodels.BreedListViewModel
@@ -23,7 +24,9 @@ sealed interface BreedsListViewState {
 
 @Composable
 fun BreedsListScreen(
-    viewModel: BreedListViewModel = hiltViewModel()
+    viewModel: BreedListViewModel = hiltViewModel(),
+    toggleTheme: () -> Unit,
+    modifier: Modifier = Modifier
 ) {
     val viewState by viewModel.uiState.collectAsState()
 
@@ -32,7 +35,7 @@ fun BreedsListScreen(
             Log.d("BreedsListScreen", "State LOADING")
         }
         is BreedsListViewState.Error -> {
-            Log.d("BreedsListScreen", "State LOADING")
+            Log.d("BreedsListScreen", "State ERROR")
 
         }
         is BreedsListViewState.Success -> {
