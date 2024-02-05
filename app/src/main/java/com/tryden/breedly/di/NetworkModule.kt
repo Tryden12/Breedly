@@ -1,6 +1,7 @@
 package com.tryden.breedly.di
 
 import com.squareup.moshi.Moshi
+import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import com.tryden.breedly.data.remote.RemoteDataSource
 import com.tryden.breedly.data.remote.RemoteSource
 import com.tryden.breedly.data.remote.service.DogsApi
@@ -39,6 +40,11 @@ object NetworkModule {
 
     @Provides
     @Singleton
+    fun provideMoshi(): Moshi = Moshi.Builder().addLast(KotlinJsonAdapterFactory()).build()
+
+
+    @Provides
+    @Singleton
     fun createClient(): OkHttpClient {
         val client = OkHttpClient.Builder().apply {
             addInterceptor(MyInterceptor())
@@ -54,7 +60,7 @@ object NetworkModule {
 
     @Provides
     @Singleton
-    fun provideRemoteRepository(api: DogsApi) : RemoteSource {
+    fun provideRemoteSource(api: DogsApi) : RemoteSource {
         return RemoteDataSource(api)
     }
 

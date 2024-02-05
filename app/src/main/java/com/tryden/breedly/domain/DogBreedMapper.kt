@@ -2,8 +2,9 @@ package com.tryden.breedly.domain
 
 import com.tryden.breedly.data.remote.dto.DogBreedResponse
 import com.tryden.breedly.domain.model.DogBreed
+import javax.inject.Inject
 
-object DogBreedMapper : Mapper<DogBreed, DogBreedResponse> {
+class DogBreedMapper @Inject constructor() : Mapper<DogBreed, DogBreedResponse> {
     override fun buildFrom(value: DogBreedResponse): DogBreed {
         return DogBreed(
             barking = value.barking,
