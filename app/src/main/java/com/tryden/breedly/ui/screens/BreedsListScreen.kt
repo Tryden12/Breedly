@@ -7,6 +7,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.tryden.breedly.domain.model.DogBreed
+import com.tryden.breedly.ui.components.BreedsList
 import com.tryden.breedly.viewmodels.BreedListViewModel
 
 /**
@@ -40,6 +41,8 @@ fun BreedsListScreen(
         }
         is BreedsListViewState.Success -> {
             Log.d("BreedsListScreen", "State SUCCESS: ")
+            val breedsList = (viewState as BreedsListViewState.Success).breedsList
+            BreedsList(breedsList)
         }
     }
 

@@ -10,4 +10,5 @@ object Constants {
     const val HOME = "home"
     const val DETAILS = "details"
     const val FAVORITES = "favorites"
+    const val FAVORITE = "Favorite"
 }
