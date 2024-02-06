@@ -14,6 +14,7 @@ import com.tryden.breedly.viewmodels.BreedListViewModel
 @Composable
 fun BreedsList(
     breedsList: List<DogBreed>,
+    onDogBreedClicked: (Int) -> Unit,
     viewModel: BreedListViewModel = hiltViewModel(),
 ) {
     LazyColumn {
@@ -23,7 +24,7 @@ fun BreedsList(
                     breed = dogBreed,
                     viewModel,
                     onItemClicked = { dogBreed ->
-                        // todo navigate to dog breed details screen
+                        onDogBreedClicked(dogBreed.id)
                     },
                 )
             }

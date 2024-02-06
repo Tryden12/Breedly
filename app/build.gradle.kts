@@ -55,6 +55,10 @@ android {
 
 dependencies {
 
+    // Compose runtime (for collectAsStateWithLifecycle)
+    implementation("androidx.lifecycle:lifecycle-runtime-compose:2.6.2")
+
+
     // Coroutines
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3")
 
