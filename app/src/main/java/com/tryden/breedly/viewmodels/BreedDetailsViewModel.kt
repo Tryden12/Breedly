@@ -20,6 +20,7 @@ class BreedDetailsViewModel @Inject constructor(
     private val getBreedUseCase: GetBreedUseCase
 ) : ViewModel() {
 
+    // Breed ID to use for fetching dog breed model from local db
     private val breedId: Int = checkNotNull(savedStateHandle[BREED_ID_KEY])
 
     private val _uiState = MutableStateFlow<BreedDetailsViewState>(BreedDetailsViewState.Loading)
@@ -35,10 +36,11 @@ class BreedDetailsViewModel @Inject constructor(
 
         viewModelScope.launch {
             try {
-                val dogBreed = getBreedUseCase.getDogBreed(id)
-                Log.d("BreedDetailsViewModel", "getDogBreed SUCCESS: breedId = ${dogBreed.id}")
-                _uiState.update {
-                    return@update BreedDetailsViewState.Success(dogBreed = dogBreed)
+                getBreedUseCase.getDogBreed(id).let { dogBreed ->
+                    Log.d("BreedDetailsViewModel", "getDogBreed SUCCESS: breedId = ${dogBreed.id}")
+                    _uiState.update {
+                        return@update BreedDetailsViewState.Success(dogBreed = dogBreed)
+                    }
                 }
             } catch (e: Exception) {
                 Log.e("BreedDetailsViewModel", "getAllBreeds EXCEPTION: $e")
@@ -48,5 +50,4 @@ class BreedDetailsViewModel @Inject constructor(
             }
         }
     }
-
 }

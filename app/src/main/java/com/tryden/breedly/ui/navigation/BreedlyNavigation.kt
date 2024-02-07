@@ -20,7 +20,7 @@ import com.tryden.breedly.utils.Constants.BREED_ID_KEY
  */
 
 @Composable
-fun BreedlyNavigaiton(
+fun BreedlyNavigation(
     toggleTheme: () -> Unit,
     paddingValues: PaddingValues
 ) {
@@ -28,20 +28,19 @@ fun BreedlyNavigaiton(
     val navController = rememberNavController()
     NavHost(
         navController = navController,
-        startDestination = BreedlyScreen.Home.name,
+        startDestination = Screen.Home.route,
         modifier = Modifier.padding(paddingValues)
     ) {
-        composable(route = BreedlyScreen.Home.name) {
+        composable(route = Screen.Home.route) {
             BreedsListScreen(
                 onDogBreedClicked = { dogBreedId ->
-//                    todo: pass in breed id
-                    navController.navigate(BreedlyScreen.Details.name+"/$dogBreedId")
+                    navController.navigate( route = Screen.BreedDetails.createRoute(dogBreedId) )
                 },
                 modifier = Modifier.fillMaxWidth()
             )
         }
         composable(
-            route = BreedlyScreen.Details.name+"/{breedId}",
+            route = Screen.BreedDetails.route,
             arguments = listOf(navArgument(BREED_ID_KEY) {
                 type = NavType.IntType
             })
@@ -50,7 +49,7 @@ fun BreedlyNavigaiton(
                 backStackEntry.arguments?.getInt(BREED_ID_KEY) ?: -1
             BreedDetailsScreen(breedId = breedId)
         }
-        composable(route = BreedlyScreen.Favorites.name) {
+        composable(route = Screen.Favorites.route) {
             // todo
         }
 

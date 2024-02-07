@@ -7,10 +7,9 @@ object Constants {
     const val API_KEY_VALUE = "uQMzA1oELLsTA/b4LM1pOQ==cL4MiVL01VrZk1hD"
     const val DB_NAME = "dog_breeds_db"
 
-    const val HOME = "home"
-    const val DETAILS = "details"
-    const val FAVORITES = "favorites"
-    const val FAVORITE = "Favorite"
+    const val HOME_ROUTE = "home"
+    const val BREED_DETAILS_ROUTE = "details/{breedId}"
+    const val FAVORITES_ROUTE = "favorites"
 
     const val BREED_ID_KEY = "breedId"
 }

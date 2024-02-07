@@ -1,10 +1,10 @@
 <resources>
     <string name="app_name">Breedly</string>
 
-    <!-- Screen Routes -->
-    <string name="home_route">Home</string>
-    <string name="breed_details_route">Details/{breedId}</string>
-    <string name="favorites_route">Favorites</string>
+    <!-- Screen Names -->
+    <string name="home">Home</string>
+    <string name="breed_details">Details</string>
+    <string name="favorites">Favorites</string>
 
     <string name="back_button">Back</string>
 
