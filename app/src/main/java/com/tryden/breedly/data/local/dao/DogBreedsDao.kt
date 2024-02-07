@@ -37,8 +37,8 @@ interface DogBreedsDao {
     /**
      * Get specific breed.
      */
-    @Query("SELECT * FROM dogbreed WHERE name = :name")
-    suspend fun getBreed(name: String): DogBreed
+    @Query("SELECT * FROM dogbreed WHERE id = :id")
+    suspend fun getBreed(id: Int): DogBreed
 
     /**
      * Insert all breeds.

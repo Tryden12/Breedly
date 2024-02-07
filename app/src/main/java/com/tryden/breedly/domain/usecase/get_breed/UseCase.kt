@@ -1,4 +1,4 @@
-package com.tryden.breedly.domain.usecase.breeds_list
+package com.tryden.breedly.domain.usecase.get_breed
 
 import com.tryden.breedly.domain.model.DogBreed
 import com.tryden.breedly.utils.Resource
@@ -6,10 +6,9 @@ import kotlinx.coroutines.flow.Flow
 
 
 /**
- * Use case class for getting all dog breeds list.
+ * Use case class for getting breed details of one dog breed.
  * This use case is injected to the view model wherever it is required.
  */
 interface UseCase {
-    fun getAllBreeds(minLifeExpectancy: Int): Flow<Resource<List<DogBreed>>>
-
+    suspend fun getDogBreed(id: Int): DogBreed
 }

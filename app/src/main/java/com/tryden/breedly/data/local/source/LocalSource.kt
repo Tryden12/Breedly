@@ -10,7 +10,7 @@ interface LocalSource {
     fun getFavoriteBreeds(): Flow<List<DogBreed>>
 
 
-    suspend fun getBreed(name: String): DogBreed
+    suspend fun getDogBreed(id: Int): DogBreed
     suspend fun insertAllBreeds(dogBreeds: List<DogBreed>)
 
     suspend fun insertBreed(dogBreed: DogBreed)

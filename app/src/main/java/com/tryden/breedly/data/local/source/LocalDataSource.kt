@@ -27,8 +27,8 @@ class LocalDataSource @Inject constructor(
         return breedsDao.getFavoriteBreeds()
     }
 
-    override suspend fun getBreed(name: String): DogBreed {
-        return breedsDao.getBreed(name)
+    override suspend fun getDogBreed(id: Int): DogBreed {
+        return breedsDao.getBreed(id)
     }
 
     override suspend fun insertAllBreeds(dogBreeds: List<DogBreed>) {

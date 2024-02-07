@@ -53,6 +53,10 @@ class DataRepositoryImpl @Inject constructor(
         )
     }
 
+    override suspend fun getDogBreed(id: Int): DogBreed {
+        return localSource.getDogBreed(id)
+    }
+
     /**
      * We use flow on Dispatchers.IO thread to fetch the search of dog breed list data.
      */
@@ -64,9 +68,6 @@ class DataRepositoryImpl @Inject constructor(
 //        // todo
 //    }
 //
-//    override suspend fun getBreed(name: String): DogBreed {
-//        // todo
-//    }
 //
 //    override suspend fun insertBreed(dogBreed: DogBreed) {
 //        // todo

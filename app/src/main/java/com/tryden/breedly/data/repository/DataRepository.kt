@@ -12,12 +12,12 @@ import kotlinx.coroutines.flow.Flow
 interface DataRepository {
 
     fun getAllBreeds(minLifeExpectancy: Int): Flow<Resource<List<DogBreed>>>
+    suspend fun getDogBreed(id: Int): DogBreed
 
 //    Todo:
 //    fun searchBreeds(name: String): Flow<List<DogBreed>>
 //    fun getFavoriteBreeds(): Flow<List<DogBreed>>
 //
-//    suspend fun getBreed(name: String): DogBreed
 //    suspend fun insertBreed(dogBreed: DogBreed)
 //    suspend fun updateBreed(id: Int, isFavorite: Boolean)
 //    suspend fun deleteBreed(dogBreed: DogBreed)
