@@ -10,7 +10,7 @@ import com.tryden.breedly.utils.Constants.HOME
  * enum values that represent the screens in the app.
  */
 enum class BreedlyScreen(@StringRes val title: Int) {
-    Home(title = R.string.home),
-    Details(title = R.string.details),
-    Favorites(title = R.string.favorites)
+    Home(title = R.string.home_route),
+    Details(title = R.string.breed_details_route),
+    Favorites(title = R.string.favorites_route)
 }

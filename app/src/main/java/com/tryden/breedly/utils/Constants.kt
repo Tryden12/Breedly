@@ -11,4 +11,6 @@ object Constants {
     const val DETAILS = "details"
     const val FAVORITES = "favorites"
     const val FAVORITE = "Favorite"
+
+    const val BREED_ID_KEY = "breedId"
 }

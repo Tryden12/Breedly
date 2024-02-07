@@ -27,7 +27,7 @@ fun BreedlyAppBar(
     modifier: Modifier = Modifier
 ) {
     TopAppBar(
-        title = { Text(text = stringResource(id = currentScreen.title)) },
+        title = { Text(text = currentScreen.name) },
         backgroundColor = MaterialTheme.colors.background,
         modifier = modifier,
         navigationIcon = {
