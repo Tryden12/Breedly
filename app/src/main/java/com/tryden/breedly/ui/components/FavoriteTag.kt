@@ -6,15 +6,11 @@ import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Icon
 import androidx.compose.material.IconToggleButton
-import androidx.compose.material.MaterialTheme
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.FavoriteBorder
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.graphicsLayer
@@ -36,7 +32,7 @@ fun FavoriteTag(
         modifier = Modifier
             .wrapContentWidth()
             .clip(RoundedCornerShape(12.dp))
-            .background(MaterialTheme.colors.secondary)
+            .background(MaterialTheme.colorScheme.inversePrimary)
     ) {
         IconToggleButton(
             checked = breed.isFavorite,
@@ -45,7 +41,7 @@ fun FavoriteTag(
             }
         ) {
            Icon(
-               tint = MaterialTheme.colors.onSecondary,
+               tint = MaterialTheme.colorScheme.primary,
                imageVector =
                    if (breed.isFavorite) Icons.Filled.Favorite
                    else Icons.Filled.FavoriteBorder,

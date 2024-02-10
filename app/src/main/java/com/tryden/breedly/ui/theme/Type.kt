@@ -1,6 +1,7 @@
 package com.tryden.breedly.ui.theme
 
 
+import androidx.compose.material3.Typography
 import androidx.compose.ui.text.googlefonts.GoogleFont
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.googlefonts.Font
@@ -21,61 +22,41 @@ val provider = GoogleFont.Provider(
 
 val fontName = GoogleFont("Roboto")
 
-val Roboto = FontFamily(
+val primaryFontFamily = FontFamily(
     Font(googleFont = fontName, fontProvider = provider)
 )
 
 // Set of Material typography styles to start with
-val typography = androidx.compose.material.Typography(
-    h4 = TextStyle(
-        fontFamily = Roboto,
-        fontWeight = FontWeight.W600,
-        fontSize = 30.sp
-    ),
-    h5 = TextStyle(
-        fontFamily = Roboto,
-        fontWeight = FontWeight.W600,
-        fontSize = 24.sp
-    ),
-    h6 = TextStyle(
-        fontFamily = Roboto,
-        fontWeight = FontWeight.W600,
-        fontSize = 20.sp
-    ),
-    subtitle1 = TextStyle(
-        fontFamily = Roboto,
-        fontWeight = FontWeight.W500,
-        fontSize = 16.sp
-    ),
-    subtitle2 = TextStyle(
-        fontFamily = Roboto,
-        fontWeight = FontWeight.W500,
-        fontSize = 14.sp
-    ),
-    body1 = TextStyle(
-        fontFamily = Roboto,
+val Typography = Typography(
+    displaySmall = TextStyle(
         fontWeight = FontWeight.Normal,
-        fontSize = 16.sp
+        fontSize = 36.sp,
+        fontFamily = primaryFontFamily
     ),
-    body2 = TextStyle(
-        fontFamily = Roboto,
+    headlineSmall = TextStyle(
+        fontWeight = FontWeight.Normal,
+        fontSize = 30.sp,
+        fontFamily = primaryFontFamily
+    ),
+    labelSmall = TextStyle(
+        fontWeight = FontWeight.Normal,
+        fontSize = 13.sp,
+        fontFamily = primaryFontFamily
+    ),
+    titleSmall = TextStyle(
+        fontWeight = FontWeight.Bold,
         fontSize = 14.sp,
-        lineHeight = 20.sp
+        fontFamily = primaryFontFamily
     ),
-    button = TextStyle(
-        fontFamily = Roboto,
-        fontWeight = FontWeight.W500,
-        fontSize = 14.sp
+    titleMedium = TextStyle(
+        fontWeight = FontWeight.SemiBold,
+        letterSpacing = (.5).sp,
+        fontSize = 18.sp,
+        fontFamily = primaryFontFamily
     ),
-    caption = TextStyle(
-        fontFamily = Roboto,
+    titleLarge = TextStyle(
         fontWeight = FontWeight.Normal,
-        fontSize = 12.sp
+        fontSize = 24.sp,
+        fontFamily = primaryFontFamily
     ),
-    overline = TextStyle(
-        fontFamily = Roboto,
-        fontWeight = FontWeight.W500,
-        fontSize = 12.sp
-
-    )
 )

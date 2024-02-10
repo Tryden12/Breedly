@@ -1,12 +1,8 @@
 package com.tryden.breedly.ui.components
 
 import android.util.Log
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material.MaterialTheme
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.material.TopAppBar
 import androidx.compose.material.icons.Icons
@@ -16,6 +12,7 @@ import androidx.compose.material3.IconButton
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.unit.dp
 import com.tryden.breedly.R
 import com.tryden.breedly.ui.navigation.Screen
 
@@ -31,6 +28,9 @@ fun BreedsListTopAppBar(
         actions = {
             // todo actions: search, filter, sort
         },
+        backgroundColor = MaterialTheme.colorScheme.background,
+        contentColor = MaterialTheme.colorScheme.onBackground,
+        elevation = 0.dp,
         modifier = modifier.fillMaxWidth()
     )
 }
@@ -56,7 +56,8 @@ fun BreedsDetailsTopAppBar(
 
     TopAppBar(
         title = { Text(text = currentScreenName) },
-        backgroundColor = MaterialTheme.colors.background,
+        backgroundColor = MaterialTheme.colorScheme.background,
+        contentColor = MaterialTheme.colorScheme.onBackground,
         modifier = modifier,
         navigationIcon = {
             if (canNavigateBack) {

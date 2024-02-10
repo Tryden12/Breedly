@@ -3,8 +3,10 @@ package com.tryden.breedly.ui.screens
 import android.util.Log
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Scaffold
 import androidx.compose.material.ScaffoldState
+import androidx.compose.material.contentColorFor
 import androidx.compose.material.rememberScaffoldState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -40,7 +42,8 @@ fun BreedsListScreen(
     Scaffold(
         scaffoldState = scaffoldState,
         topBar = { BreedsListTopAppBar() },
-        modifier = modifier.fillMaxSize()
+        modifier = modifier.fillMaxSize(),
+        contentColor = contentColorFor(backgroundColor = MaterialTheme.colors.background)
     ) { paddingValues ->
 
         val viewState by viewModel.uiState.collectAsStateWithLifecycle()

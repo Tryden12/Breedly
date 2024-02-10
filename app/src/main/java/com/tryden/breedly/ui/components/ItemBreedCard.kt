@@ -1,20 +1,17 @@
 package com.tryden.breedly.ui.components
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
-import androidx.compose.material.MaterialTheme
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.material3.CardDefaults
 import androidx.compose.runtime.Composable
@@ -52,6 +49,9 @@ fun ItemBreedCard(
         elevation = CardDefaults.cardElevation(
             defaultElevation = 8.dp
         ),
+        colors = CardDefaults.cardColors(
+            containerColor = MaterialTheme.colorScheme.primaryContainer
+        )
     ) {
         Row(
            modifier = Modifier
@@ -79,9 +79,9 @@ fun ItemBreedCard(
                 Text(
                     text = breed.name,
                     modifier = Modifier.padding(0.dp, 0.dp, 12.dp, 0.dp),
-                    color = MaterialTheme.colors.onSurface,
+                    color = MaterialTheme.colorScheme.onPrimaryContainer,
                     fontWeight = FontWeight.Bold,
-                    style = MaterialTheme.typography.h5
+                    style = MaterialTheme.typography.titleMedium
                 )
             }
 
