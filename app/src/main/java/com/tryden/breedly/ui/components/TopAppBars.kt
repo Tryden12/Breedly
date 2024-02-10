@@ -56,8 +56,8 @@ fun BreedsDetailsTopAppBar(
 
     TopAppBar(
         title = { Text(text = currentScreenName) },
-        backgroundColor = MaterialTheme.colorScheme.background,
-        contentColor = MaterialTheme.colorScheme.onBackground,
+        backgroundColor = MaterialTheme.colorScheme.surface,
+        contentColor = MaterialTheme.colorScheme.onSurface,
         modifier = modifier,
         navigationIcon = {
             if (canNavigateBack) {
