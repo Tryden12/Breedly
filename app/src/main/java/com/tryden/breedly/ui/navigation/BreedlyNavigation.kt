@@ -1,14 +1,14 @@
 package com.tryden.breedly.ui.navigation
 
-import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+import androidx.navigation.NavHostController
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-
+import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.tryden.breedly.ui.screens.BreedDetailsScreen
@@ -21,15 +21,18 @@ import com.tryden.breedly.utils.Constants.BREED_ID_KEY
 
 @Composable
 fun BreedlyNavigation(
-    toggleTheme: () -> Unit,
-    paddingValues: PaddingValues
+    modifier: Modifier = Modifier,
+    navController: NavHostController = rememberNavController(),
+    startDestination: String = Screen.Home.route,
 ) {
+    // Backstack
+    val backStackEntry by navController.currentBackStackEntryAsState()
+    val currentRoute = backStackEntry?.destination?.route ?: startDestination
 
-    val navController = rememberNavController()
     NavHost(
         navController = navController,
         startDestination = Screen.Home.route,
-        modifier = Modifier.padding(paddingValues)
+        modifier = modifier
     ) {
         composable(route = Screen.Home.route) {
             BreedsListScreen(
@@ -47,7 +50,12 @@ fun BreedlyNavigation(
         ) { backStackEntry ->
             val breedId: Int =
                 backStackEntry.arguments?.getInt(BREED_ID_KEY) ?: -1
-            BreedDetailsScreen(breedId = breedId)
+            BreedDetailsScreen(
+                breedId = breedId,
+                currentScreenRoute = currentRoute,
+                canNavigateBack = navController.previousBackStackEntry != null,
+                navigateUp = { navController.navigateUp() },
+            )
         }
         composable(route = Screen.Favorites.route) {
             // todo

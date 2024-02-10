@@ -1,6 +1,11 @@
 package com.tryden.breedly.ui.components
 
 import android.util.Log
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.material.TopAppBar
@@ -15,10 +20,24 @@ import com.tryden.breedly.R
 import com.tryden.breedly.ui.navigation.Screen
 
 /**
- * Composable that displays the topBar and displays back button if back navigation is possible.
+ * Composables that display the top bar.
  */
 @Composable
-fun BreedlyAppBar(
+fun BreedsListTopAppBar(
+    modifier: Modifier = Modifier
+) {
+    TopAppBar(
+        title = { Text(text = stringResource(id = R.string.app_name)) },
+        actions = {
+            // todo actions: search, filter, sort
+        },
+        modifier = modifier.fillMaxWidth()
+    )
+}
+
+
+@Composable
+fun BreedsDetailsTopAppBar(
     currentScreenRoute: String?,
     canNavigateBack: Boolean,
     navigateUp: () -> Unit,
@@ -27,20 +46,13 @@ fun BreedlyAppBar(
     Log.d("BreedlyAppBar", "currentScreenRoute: $currentScreenRoute")
     var currentScreenName = stringResource(id = R.string.app_name)
     if (!currentScreenRoute.isNullOrEmpty()) {
-        currentScreenName = if (Screen.Home.route == (currentScreenRoute)) {
-            Screen.Home.resourceId.toString()
-        } else if (Screen.BreedDetails.route == currentScreenRoute) {
-            Screen.Home.resourceId.toString()
-        } else if (Screen.Favorites.route == (currentScreenRoute)) {
-            Screen.Home.resourceId.toString()
-        }
-        else {
+        currentScreenName = if (Screen.BreedDetails.route == currentScreenRoute) {
+            stringResource(Screen.BreedDetails.resourceId)
+        } else {
             stringResource(id = R.string.app_name)
         }
     }
     Log.d("BreedlyAppBar", "currentScreenName: $currentScreenName")
-
-
 
     TopAppBar(
         title = { Text(text = currentScreenName) },
