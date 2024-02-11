@@ -4,9 +4,16 @@ import android.util.Log
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.tryden.breedly.domain.model.DogBreed
 import com.tryden.breedly.domain.usecase.get_breed.GetBreedUseCase
 import com.tryden.breedly.ui.screens.BreedDetailsViewState
+import com.tryden.breedly.utils.Constants.BARKING
 import com.tryden.breedly.utils.Constants.BREED_ID_KEY
+import com.tryden.breedly.utils.Constants.ENERGY
+import com.tryden.breedly.utils.Constants.PLAYFULNESS
+import com.tryden.breedly.utils.Constants.PROTECTIVENESS
+import com.tryden.breedly.utils.Constants.SHEDDING
+import com.tryden.breedly.utils.Constants.TRAINABILITY
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -48,6 +55,17 @@ class BreedDetailsViewModel @Inject constructor(
                     return@update BreedDetailsViewState.Error(e.message.toString())
                 }
             }
+        }
+    }
+
+    fun createAttributesMap(dogBreed: DogBreed) : Map<String, Int> {
+        return buildMap {
+            put(TRAINABILITY, dogBreed.trainability)
+            put(ENERGY, dogBreed.energy)
+            put(PLAYFULNESS, dogBreed.playfulness)
+            put(BARKING, dogBreed.barking)
+            put(PROTECTIVENESS, dogBreed.protectiveness)
+            put(SHEDDING, dogBreed.shedding)
         }
     }
 }

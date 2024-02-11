@@ -13,6 +13,7 @@ import androidx.compose.ui.Modifier
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.tryden.breedly.domain.model.DogBreed
+import com.tryden.breedly.ui.components.BreedDetails
 import com.tryden.breedly.ui.components.BreedsDetailsTopAppBar
 import com.tryden.breedly.viewmodels.BreedDetailsViewModel
 
@@ -65,14 +66,13 @@ fun BreedDetailsScreen(
 
             }
             is BreedDetailsViewState.Success -> {
-                Log.d("BreedDetailsScreen", "State SUCCESS: ")
                 val dogBreed = (viewState as BreedDetailsViewState.Success).dogBreed
-
-                Text(
-                    text = "This is the BreedDetailsScreen()",
+                Log.d("BreedDetailsScreen", "State SUCCESS: dog breed = ${dogBreed.name}")
+                BreedDetails(
+                    dogBreed = dogBreed,
+                    viewModel = viewModel,
                     modifier = modifier.padding(paddingValues)
                 )
-
             }
         }
     }

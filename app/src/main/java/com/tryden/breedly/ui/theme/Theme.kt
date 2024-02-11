@@ -44,6 +44,7 @@ private val lightScheme = lightColorScheme(
     inverseSurface = DarkGreenGray20,
     inverseOnSurface = DarkGreenGray95,
     outline = GreenGray50,
+    scrim = Orange40
 )
 
 private val darkScheme = darkColorScheme(
