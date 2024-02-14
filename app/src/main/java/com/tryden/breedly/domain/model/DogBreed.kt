@@ -3,6 +3,7 @@ package com.tryden.breedly.domain.model
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import com.tryden.breedly.utils.inchesToFeet
 
 /**
  * This is the Dog Breed Entity class for DogBreeds Database
@@ -53,4 +54,19 @@ data class DogBreed(
     val maxLifeExpectancy: Double,
     @ColumnInfo(name="min_life_expectancy")
     val minLifeExpectancy: Double
-)
+) {
+    fun getAvgWeight(): String {
+        val avg =  (minWeightMale + minWeightFemale + maxWeightMale + maxWeightFemale) / 4
+        return avg.toInt().toString()
+    }
+
+    fun getAvgHeight(): String {
+        val avg =  (minHeightMale + minHeightFemale + maxHeightMale + maxHeightFemale) / 4
+        return inchesToFeet(avg.toInt())
+    }
+
+    fun getAvgLifeExp(): String {
+        val avg =  (minLifeExpectancy + maxLifeExpectancy) / 2
+        return avg.toInt().toString()
+    }
+}
