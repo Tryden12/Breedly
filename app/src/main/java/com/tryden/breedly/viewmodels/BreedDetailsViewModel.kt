@@ -66,6 +66,7 @@ class BreedDetailsViewModel @Inject constructor(
             put(BARKING, dogBreed.barking)
             put(PROTECTIVENESS, dogBreed.protectiveness)
             put(SHEDDING, dogBreed.shedding)
-        }
+        }.filterValues { true } // filter nulls
+            .toList().sortedByDescending { (_, value) -> value}.toMap() // sort map by value
     }
 }
