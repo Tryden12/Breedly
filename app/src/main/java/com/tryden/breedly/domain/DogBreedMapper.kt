@@ -30,7 +30,10 @@ class DogBreedMapper @Inject constructor() : Mapper<DogBreed, DogBreedResponse> 
             minWeightFemale = value.minWeightFemale,
             minWeightMale = value.minWeightMale,
             maxLifeExpectancy = value.maxLifeExpectancy,
-            minLifeExpectancy = value.minLifeExpectancy
+            minLifeExpectancy = value.minLifeExpectancy,
+            avgWeight = value.getAvgWeight(),
+            avgHeight = value.getAvgHeight(),
+            avgLifeExp = value.getAvgLifeExp()
         )
     }
 }

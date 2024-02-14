@@ -1,6 +1,8 @@
 package com.tryden.breedly.data.remote.dto
 
 import com.squareup.moshi.Json
+import com.tryden.breedly.utils.Constants.LBS
+import com.tryden.breedly.utils.inchesToFeet
 
 data class DogBreedResponse(
     val name: String,
@@ -42,5 +44,27 @@ data class DogBreedResponse(
     @Json(name="max_life_expectancy")
     val maxLifeExpectancy: Double,
     @Json(name="min_life_expectancy")
-    val minLifeExpectancy: Double
-)
+    val minLifeExpectancy: Double,
+
+    // Used during mapping in domain layer
+    @JvmField var avgWeight: String = "",
+    @JvmField var avgHeight: String = "",
+    @JvmField var avgLifeExp: String = ""
+) {
+
+    // Used during mapping in domain layer
+    fun getAvgWeight(): String {
+        val avg =  (minWeightMale + minWeightFemale + maxWeightMale + maxWeightFemale) / 4
+        return avg.toInt().toString() + LBS
+    }
+
+    fun getAvgHeight(): String {
+        val avg =  (minHeightMale + minHeightFemale + maxHeightMale + maxHeightFemale) / 4
+        return inchesToFeet(avg.toInt())
+    }
+
+    fun getAvgLifeExp(): String {
+        val avg =  (minLifeExpectancy + maxLifeExpectancy) / 2
+        return avg.toInt().toString()
+    }
+}

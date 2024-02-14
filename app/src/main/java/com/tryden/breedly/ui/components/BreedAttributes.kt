@@ -37,60 +37,63 @@ fun BreedAttributes(
     modifier: Modifier = Modifier,
     paddingValues: PaddingValues
 ) {
-    Row(
-        verticalAlignment = Alignment.CenterVertically,
-        horizontalArrangement = Arrangement.Center,
-        modifier = modifier.fillMaxWidth()
-    ) {
-        Column(
-            verticalArrangement = Arrangement.Center,
-            horizontalAlignment = Alignment.CenterHorizontally,
-            modifier = Modifier.padding(
-                top = 4.dp,
-                start = 12.dp,
-                end = 25.dp,
-                bottom = 4.dp
-            )
-        ){
-            Text(
-                text = dogBreed.getAvgWeight() + " lbs",
-                textAlign = TextAlign.Center,
-                style = MaterialTheme.typography.titleSmall,
-                color = MaterialTheme.colorScheme.primary,
-                modifier = modifier.padding(bottom = 4.dp)
-            )
-            Text(
-                text = "Weight",
-                textAlign = TextAlign.Center,
-                style = MaterialTheme.typography.bodyLarge,
-                color = MaterialTheme.colorScheme.onSurface,
-                modifier = modifier
-            )
-        }
-        Column(
-            verticalArrangement = Arrangement.Center,
-            horizontalAlignment = Alignment.CenterHorizontally,
-            modifier = Modifier.padding(
-                top = 4.dp,
-                start = 25.dp,
-                end = 12.dp,
-                bottom = 4.dp
-            )
-        ){
-            Text(
-                text = dogBreed.getAvgHeight(),
-                textAlign = TextAlign.Center,
-                style = MaterialTheme.typography.titleSmall,
-                color = MaterialTheme.colorScheme.primary,
-                modifier = modifier.padding(bottom = 4.dp)
-            )
-            Text(
-                text = "Height",
-                textAlign = TextAlign.Center,
-                style = MaterialTheme.typography.bodyLarge,
-                color = MaterialTheme.colorScheme.onSurface,
-                modifier = modifier
-            )
+
+    if (dogBreed.avgHeight.isNotEmpty() && dogBreed.avgWeight.isNotEmpty()) {
+        Row(
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.Center,
+            modifier = modifier.fillMaxWidth()
+        ) {
+            Column(
+                verticalArrangement = Arrangement.Center,
+                horizontalAlignment = Alignment.CenterHorizontally,
+                modifier = Modifier.padding(
+                    top = 4.dp,
+                    start = 12.dp,
+                    end = 25.dp,
+                    bottom = 4.dp
+                )
+            ){
+                Text(
+                    text = dogBreed.avgWeight,
+                    textAlign = TextAlign.Center,
+                    style = MaterialTheme.typography.titleSmall,
+                    color = MaterialTheme.colorScheme.primary,
+                    modifier = modifier.padding(bottom = 4.dp)
+                )
+                Text(
+                    text = "Weight",
+                    textAlign = TextAlign.Center,
+                    style = MaterialTheme.typography.bodyLarge,
+                    color = MaterialTheme.colorScheme.onSurface,
+                    modifier = modifier
+                )
+            }
+            Column(
+                verticalArrangement = Arrangement.Center,
+                horizontalAlignment = Alignment.CenterHorizontally,
+                modifier = Modifier.padding(
+                    top = 4.dp,
+                    start = 25.dp,
+                    end = 12.dp,
+                    bottom = 4.dp
+                )
+            ){
+                Text(
+                    text = dogBreed.avgHeight,
+                    textAlign = TextAlign.Center,
+                    style = MaterialTheme.typography.titleSmall,
+                    color = MaterialTheme.colorScheme.primary,
+                    modifier = modifier.padding(bottom = 4.dp)
+                )
+                Text(
+                    text = "Height",
+                    textAlign = TextAlign.Center,
+                    style = MaterialTheme.typography.bodyLarge,
+                    color = MaterialTheme.colorScheme.onSurface,
+                    modifier = modifier
+                )
+            }
         }
     }
 

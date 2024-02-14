@@ -53,20 +53,13 @@ data class DogBreed(
     @ColumnInfo(name="max_life_expectancy")
     val maxLifeExpectancy: Double,
     @ColumnInfo(name="min_life_expectancy")
-    val minLifeExpectancy: Double
-) {
-    fun getAvgWeight(): String {
-        val avg =  (minWeightMale + minWeightFemale + maxWeightMale + maxWeightFemale) / 4
-        return avg.toInt().toString()
-    }
+    val minLifeExpectancy: Double,
 
-    fun getAvgHeight(): String {
-        val avg =  (minHeightMale + minHeightFemale + maxHeightMale + maxHeightFemale) / 4
-        return inchesToFeet(avg.toInt())
-    }
-
-    fun getAvgLifeExp(): String {
-        val avg =  (minLifeExpectancy + maxLifeExpectancy) / 2
-        return avg.toInt().toString()
-    }
-}
+    // Calculated in domain layer mapping
+    @ColumnInfo(name = "avg_weight")
+    val avgWeight: String = "",
+    @ColumnInfo(name = "avg_height")
+    val avgHeight: String = "",
+    @ColumnInfo(name = "avg_life_expectancy")
+    val avgLifeExp: String = ""
+)

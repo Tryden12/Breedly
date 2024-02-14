@@ -15,12 +15,13 @@ object Constants {
     const val BREED_ID_KEY        = "breedId"
 
 
-    /** Attribute Labels **/
+    /** Attribute Labels & value addition(s) **/
     const val TRAINABILITY    = "Trainability"
     const val ENERGY          = "Energy"
     const val PLAYFULNESS     = "Playfulness"
     const val BARKING         = "Barking"
     const val PROTECTIVENESS  = "Protectiveness"
     const val SHEDDING        = "Shedding"
+    const val LBS             = " lbs"
 
 }
