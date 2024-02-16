@@ -13,47 +13,47 @@ import com.tryden.breedly.utils.inchesToFeet
 data class DogBreed(
     @PrimaryKey (autoGenerate = true)
     val id: Int = 0,
-    val name: String,
+    val name: String = "",
     @ColumnInfo(name = "is_favorite")
     val isFavorite: Boolean = false,
-    val barking: Int,
-    val playfulness: Int,
-    val protectiveness: Int,
-    val shedding: Int,
-    val trainability: Int,
-    val drooling: Int,
-    val energy: Int,
-    val grooming: Int,
+    val barking: Int = 0,
+    val playfulness: Int = 0,
+    val protectiveness: Int = 0,
+    val shedding: Int = 0,
+    val trainability: Int = 0,
+    val drooling: Int = 0,
+    val energy: Int = 0,
+    val grooming: Int = 0,
     @ColumnInfo(name="image_link")
-    val imageLink: String,
+    val imageLink: String = "",
     @ColumnInfo(name="coat_length")
-    val coatLength: Int,
+    val coatLength: Int = 0,
     @ColumnInfo(name="good_with_children")
-    val goodWithChildren: Int,
+    val goodWithChildren: Int = 0,
     @ColumnInfo(name="good_with_other_dogs")
-    val goodWithOtherDogs: Int,
+    val goodWithOtherDogs: Int = 0,
     @ColumnInfo(name="good_with_strangers")
-    val goodWithStrangers: Int,
+    val goodWithStrangers: Int = 0,
     @ColumnInfo(name="max_height_female")
-    val maxHeightFemale: Double,
+    val maxHeightFemale: Double = 0.0,
     @ColumnInfo(name="max_height_male")
-    val maxHeightMale: Double,
+    val maxHeightMale: Double = 0.0,
     @ColumnInfo(name="min_height_female")
-    val minHeightFemale: Double,
+    val minHeightFemale: Double  = 0.0,
     @ColumnInfo(name="min_height_male")
-    val minHeightMale: Double,
+    val minHeightMale: Double = 0.0,
     @ColumnInfo(name="max_weight_female")
-    val maxWeightFemale: Double,
+    val maxWeightFemale: Double = 0.0,
     @ColumnInfo(name="max_weight_male")
-    val maxWeightMale: Double,
+    val maxWeightMale: Double = 0.0,
     @ColumnInfo(name="min_weight_female")
-    val minWeightFemale: Double,
+    val minWeightFemale: Double = 0.0,
     @ColumnInfo(name="min_weight_male")
-    val minWeightMale: Double,
+    val minWeightMale: Double = 0.0,
     @ColumnInfo(name="max_life_expectancy")
-    val maxLifeExpectancy: Double,
+    val maxLifeExpectancy: Double = 0.0,
     @ColumnInfo(name="min_life_expectancy")
-    val minLifeExpectancy: Double,
+    val minLifeExpectancy: Double = 0.0,
 
     // Calculated in domain layer mapping
     @ColumnInfo(name = "avg_weight")

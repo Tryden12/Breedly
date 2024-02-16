@@ -86,5 +86,8 @@ fun BreedDetails(
                 paddingValues = paddingValues
             )
         }
+        item {
+            Spacer(modifier = modifier.padding(4.dp))
+        }
     }
 }

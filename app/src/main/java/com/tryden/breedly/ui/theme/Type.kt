@@ -45,7 +45,7 @@ val Typography = Typography(
     ),
     titleSmall = TextStyle(
         fontWeight = FontWeight.Bold,
-        fontSize = 24.sp,
+        fontSize = 20.sp,
         fontFamily = primaryFontFamily
     ),
     titleMedium = TextStyle(
