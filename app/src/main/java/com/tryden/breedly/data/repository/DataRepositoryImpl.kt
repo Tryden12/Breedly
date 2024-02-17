@@ -57,6 +57,14 @@ class DataRepositoryImpl @Inject constructor(
         return localSource.getDogBreed(id)
     }
 
+    override fun getFavoriteBreeds(): Flow<List<DogBreed>> {
+        return localSource.getFavoriteBreeds()
+    }
+
+    override suspend fun updateBreed(id: Int, isFavorite: Boolean) {
+        localSource.updateBreed(id, isFavorite)
+    }
+
     /**
      * We use flow on Dispatchers.IO thread to fetch the search of dog breed list data.
      */
@@ -64,18 +72,13 @@ class DataRepositoryImpl @Inject constructor(
 //        // todo
 //    }
 //
-//    override fun getFavoriteBreeds(): Flow<List<DogBreed>> {
-//        // todo
-//    }
 //
 //
 //    override suspend fun insertBreed(dogBreed: DogBreed) {
 //        // todo
 //    }
 //
-//    override suspend fun updateBreed(id: Int, isFavorite: Boolean) {
-//        // todo
-//    }
+
 //
 //    override suspend fun deleteBreed(dogBreed: DogBreed) {
 //        // todo

@@ -15,7 +15,7 @@ data class DogBreed(
     val id: Int = 0,
     val name: String = "",
     @ColumnInfo(name = "is_favorite")
-    val isFavorite: Boolean = false,
+    var isFavorite: Boolean = false,
     val barking: Int = 0,
     val playfulness: Int = 0,
     val protectiveness: Int = 0,

@@ -55,7 +55,7 @@ interface DogBreedsDao {
     /**
      * Update breed.
      */
-    @Query("UPDATE dogbreed SET is_favorite = :isFavorite WHERE name LIKE :id")
+    @Query("UPDATE dogbreed SET is_favorite = :isFavorite WHERE id LIKE :id")
     suspend fun updateBreed(id: Int, isFavorite: Boolean)
 
 

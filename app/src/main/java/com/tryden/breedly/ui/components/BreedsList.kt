@@ -31,7 +31,7 @@ fun BreedsList(
         content = {
             breedsList.let { list ->
                 items(list) { dogBreed ->
-                    ItemBreedCardNew(
+                    ItemBreedCard(
                         breed = dogBreed,
                         viewModel,
                         onItemClicked = { dogBreed ->
