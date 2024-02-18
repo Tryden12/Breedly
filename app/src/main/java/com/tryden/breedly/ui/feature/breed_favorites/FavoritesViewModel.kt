@@ -1,4 +1,4 @@
-package com.tryden.breedly.viewmodels
+package com.tryden.breedly.ui.feature.breed_favorites
 
 import android.util.Log
 import androidx.lifecycle.ViewModel

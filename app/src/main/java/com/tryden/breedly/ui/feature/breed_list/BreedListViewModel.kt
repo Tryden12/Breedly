@@ -1,12 +1,10 @@
-package com.tryden.breedly.viewmodels
+package com.tryden.breedly.ui.feature.breed_list
 
 import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.tryden.breedly.domain.model.DogBreed
 import com.tryden.breedly.domain.usecase.breeds_list.BreedsListUseCase
 import com.tryden.breedly.domain.usecase.favorite_breeds.FavoriteBreedsUseCase
-import com.tryden.breedly.ui.screens.BreedsListViewState
 import com.tryden.breedly.utils.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow

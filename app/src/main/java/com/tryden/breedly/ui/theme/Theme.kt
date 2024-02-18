@@ -14,42 +14,6 @@ import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalView
 import androidx.core.view.WindowCompat
-import com.example.compose.Blue10
-import com.example.compose.Blue20
-import com.example.compose.Blue30
-import com.example.compose.Blue40
-import com.example.compose.Blue80
-import com.example.compose.Blue90
-import com.example.compose.DarkGreen30
-import com.example.compose.DarkGreen90
-import com.example.compose.DarkGreenGray10
-import com.example.compose.DarkGreenGray20
-import com.example.compose.DarkGreenGray90
-import com.example.compose.DarkGreenGray95
-import com.example.compose.DarkGreenGray99
-import com.example.compose.DarkPurpleGray10
-import com.example.compose.DarkPurpleGray20
-import com.example.compose.DarkPurpleGray90
-import com.example.compose.GreenGray50
-import com.example.compose.Orange20
-import com.example.compose.Orange30
-import com.example.compose.Orange80
-import com.example.compose.Orange90
-import com.example.compose.Pink40
-import com.example.compose.Pink90
-import com.example.compose.Purple20
-import com.example.compose.Purple30
-import com.example.compose.Purple80
-import com.example.compose.Purple90
-import com.example.compose.PurpleGray30
-import com.example.compose.PurpleGray60
-import com.example.compose.PurpleGray80
-import com.example.compose.Red10
-import com.example.compose.Red20
-import com.example.compose.Red30
-import com.example.compose.Red40
-import com.example.compose.Red80
-import com.example.compose.Red90
 
 
 private val lightScheme = lightColorScheme(
@@ -69,9 +33,9 @@ private val lightScheme = lightColorScheme(
     onError = Color.White,
     errorContainer = Red90,
     onErrorContainer = Red10,
-    background = DarkGreenGray99,
+    background = DarkBlueGray90,
     onBackground = DarkGreenGray10,
-    surface = DarkGreenGray99,
+    surface = DarkBlueGray90,
     onSurface = DarkGreenGray10,
     surfaceVariant = DarkGreen90,
     onSurfaceVariant = DarkGreen30,

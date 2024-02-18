@@ -1,4 +1,4 @@
-package com.example.compose
+package com.tryden.breedly.ui.theme
 import androidx.compose.ui.graphics.Color
 
 internal val Blue10 = Color(0xFF001F28)
@@ -7,6 +7,7 @@ internal val Blue30 = Color(0xFF004D61)
 internal val Blue40 = Color(0xFF006780)
 internal val Blue80 = Color(0xFF5DD5FC)
 internal val Blue90 = Color(0xFFB8EAFF)
+internal val DarkBlueGray90 = Color(0xFFF4F7FD)
 internal val DarkGreen10 = Color(0xFF0D1F12)
 internal val DarkGreen20 = Color(0xFF223526)
 internal val DarkGreen30 = Color(0xFF394B3C)

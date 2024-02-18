@@ -1,4 +1,4 @@
-package com.tryden.breedly.ui.components
+package com.tryden.breedly.ui.common
 
 import androidx.compose.animation.animateContentSize
 import androidx.compose.animation.core.LinearOutSlowInEasing

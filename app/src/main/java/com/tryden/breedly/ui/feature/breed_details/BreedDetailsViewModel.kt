@@ -1,4 +1,4 @@
-package com.tryden.breedly.viewmodels
+package com.tryden.breedly.ui.feature.breed_details
 
 import android.util.Log
 import androidx.lifecycle.SavedStateHandle
@@ -6,7 +6,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.tryden.breedly.domain.model.DogBreed
 import com.tryden.breedly.domain.usecase.get_breed.GetBreedUseCase
-import com.tryden.breedly.ui.screens.BreedDetailsViewState
 import com.tryden.breedly.utils.Constants.BARKING
 import com.tryden.breedly.utils.Constants.BREED_ID_KEY
 import com.tryden.breedly.utils.Constants.ENERGY

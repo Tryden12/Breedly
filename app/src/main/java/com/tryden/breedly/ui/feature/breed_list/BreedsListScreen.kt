@@ -1,4 +1,4 @@
-package com.tryden.breedly.ui.screens
+package com.tryden.breedly.ui.feature.breed_list
 
 import android.util.Log
 import androidx.compose.foundation.layout.fillMaxSize
@@ -14,10 +14,7 @@ import androidx.compose.ui.Modifier
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.tryden.breedly.domain.model.DogBreed
-import com.tryden.breedly.ui.components.BreedsListTopAppBar
-import com.tryden.breedly.ui.components.BreedsList
-import com.tryden.breedly.ui.components.ThemeSwitcher
-import com.tryden.breedly.viewmodels.BreedListViewModel
+import com.tryden.breedly.ui.common.BreedsListTopAppBar
 
 /**
  * Composable screen for displaying breeds list.

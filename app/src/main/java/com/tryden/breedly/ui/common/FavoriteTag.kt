@@ -1,4 +1,4 @@
-package com.tryden.breedly.ui.components
+package com.tryden.breedly.ui.common
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box

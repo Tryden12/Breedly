@@ -1,18 +1,16 @@
-package com.tryden.breedly.ui.components
+package com.tryden.breedly.ui.feature.breed_list
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.grid.GridCells
-import androidx.compose.foundation.lazy.grid.GridItemSpan
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
-import androidx.compose.foundation.lazy.items
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.tryden.breedly.domain.model.DogBreed
-import com.tryden.breedly.viewmodels.BreedListViewModel
 
 /**
  * Composable for displaying list of Breeds.
@@ -28,6 +26,7 @@ fun BreedsList(
     LazyVerticalGrid(
         columns = GridCells.Adaptive(150.dp),
         horizontalArrangement = Arrangement.SpaceEvenly,
+        modifier = modifier.background(MaterialTheme.colorScheme.background),
         content = {
             breedsList.let { list ->
                 items(list) { dogBreed ->

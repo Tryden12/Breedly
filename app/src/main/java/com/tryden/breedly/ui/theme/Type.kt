@@ -2,6 +2,9 @@ package com.tryden.breedly.ui.theme
 
 
 import androidx.compose.material3.Typography
+import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.Shadow
 import androidx.compose.ui.text.googlefonts.GoogleFont
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.googlefonts.Font
@@ -25,6 +28,9 @@ val fontName = GoogleFont("Roboto")
 val primaryFontFamily = FontFamily(
     Font(googleFont = fontName, fontProvider = provider)
 )
+
+val offset = Offset(1f, 1f)
+
 
 // Set of Material typography styles to start with
 val Typography = Typography(
@@ -52,7 +58,8 @@ val Typography = Typography(
         fontWeight = FontWeight.Bold,
         letterSpacing = (.5).sp,
         fontSize = 28.sp,
-        fontFamily = primaryFontFamily
+        fontFamily = primaryFontFamily,
+        shadow = Shadow(color = Color.Black, offset = offset, blurRadius = 1f)
     ),
     titleLarge = TextStyle(
         fontWeight = FontWeight.Bold,

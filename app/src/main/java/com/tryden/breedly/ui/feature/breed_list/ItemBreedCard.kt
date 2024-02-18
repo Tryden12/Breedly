@@ -1,6 +1,5 @@
-package com.tryden.breedly.ui.components
+package com.tryden.breedly.ui.feature.breed_list
 
-import android.util.Log
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -32,7 +31,7 @@ import coil.compose.AsyncImage
 import coil.request.ImageRequest
 import com.tryden.breedly.R
 import com.tryden.breedly.domain.model.DogBreed
-import com.tryden.breedly.viewmodels.BreedListViewModel
+import com.tryden.breedly.ui.common.FavoriteTag
 
 /**
  * Composable for dog breed item card.

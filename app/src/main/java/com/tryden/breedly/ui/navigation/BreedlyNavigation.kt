@@ -11,8 +11,8 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
-import com.tryden.breedly.ui.screens.BreedDetailsScreen
-import com.tryden.breedly.ui.screens.BreedsListScreen
+import com.tryden.breedly.ui.feature.breed_details.BreedDetailsScreen
+import com.tryden.breedly.ui.feature.breed_list.BreedsListScreen
 import com.tryden.breedly.utils.Constants.BREED_ID_KEY
 
 /**

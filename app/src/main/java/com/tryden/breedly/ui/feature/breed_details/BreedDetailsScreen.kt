@@ -1,4 +1,4 @@
-package com.tryden.breedly.ui.screens
+package com.tryden.breedly.ui.feature.breed_details
 
 import android.util.Log
 import androidx.compose.foundation.layout.fillMaxSize
@@ -6,16 +6,13 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Scaffold
 import androidx.compose.material.ScaffoldState
 import androidx.compose.material.rememberScaffoldState
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.tryden.breedly.domain.model.DogBreed
-import com.tryden.breedly.ui.components.BreedDetails
-import com.tryden.breedly.ui.components.BreedsDetailsTopAppBar
-import com.tryden.breedly.viewmodels.BreedDetailsViewModel
+import com.tryden.breedly.ui.common.BreedsDetailsTopAppBar
 
 /**
  * Composable screen for displaying breed details.

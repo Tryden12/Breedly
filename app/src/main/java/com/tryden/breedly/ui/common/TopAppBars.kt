@@ -1,4 +1,4 @@
-package com.tryden.breedly.ui.components
+package com.tryden.breedly.ui.common
 
 import android.util.Log
 import androidx.compose.foundation.layout.fillMaxWidth

@@ -1,4 +1,4 @@
-package com.tryden.breedly.ui.components
+package com.tryden.breedly.ui.feature.breed_details
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -17,6 +17,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.tryden.breedly.domain.model.DogBreed
+import com.tryden.breedly.ui.common.FavoriteHeart
 
 /**
  * Composable for displaying breed name, average height, and average weight.
@@ -32,7 +33,7 @@ fun BreedDetailsNameCard(
     ) {
         Column(
             verticalArrangement = Arrangement.Top,
-            horizontalAlignment = Alignment.CenterHorizontally,
+            horizontalAlignment = Alignment.End,
             modifier = modifier
                 .fillMaxWidth()
                 .height(IntrinsicSize.Min)
