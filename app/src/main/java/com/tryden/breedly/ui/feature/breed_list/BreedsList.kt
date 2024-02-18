@@ -26,7 +26,7 @@ fun BreedsList(
     LazyVerticalGrid(
         columns = GridCells.Adaptive(150.dp),
         horizontalArrangement = Arrangement.SpaceEvenly,
-        modifier = modifier.background(MaterialTheme.colorScheme.background),
+        modifier = modifier,
         content = {
             breedsList.let { list ->
                 items(list) { dogBreed ->

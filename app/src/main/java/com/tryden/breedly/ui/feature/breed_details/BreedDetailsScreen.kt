@@ -13,6 +13,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.tryden.breedly.domain.model.DogBreed
 import com.tryden.breedly.ui.common.BreedsDetailsTopAppBar
+import com.tryden.breedly.ui.common.ErrorScreen
 
 /**
  * Composable screen for displaying breed details.
@@ -57,10 +58,11 @@ fun BreedDetailsScreen(
         when (viewState) {
             is BreedDetailsViewState.Loading -> {
                 Log.d("BreedDetailsScreen", "State LOADING")
+                LoadingBreedDetails()
             }
             is BreedDetailsViewState.Error -> {
                 Log.d("BreedDetailsScreen", "State ERROR")
-
+                ErrorScreen()
             }
             is BreedDetailsViewState.Success -> {
                 val dogBreed = (viewState as BreedDetailsViewState.Success).dogBreed

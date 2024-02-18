@@ -4,9 +4,9 @@ import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.tryden.breedly.domain.usecase.breeds_list.BreedsListUseCase
-import com.tryden.breedly.domain.usecase.favorite_breeds.FavoriteBreedsUseCase
 import com.tryden.breedly.utils.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
@@ -16,7 +16,6 @@ import javax.inject.Inject
 @HiltViewModel
 class BreedListViewModel @Inject constructor(
     private val breedsListUseCase: BreedsListUseCase,
-    private val favoriteBreedsUseCase: FavoriteBreedsUseCase
 ) : ViewModel() {
 
     private val _uiState = MutableStateFlow<BreedsListViewState>(BreedsListViewState.Loading)
@@ -30,7 +29,11 @@ class BreedListViewModel @Inject constructor(
     }
 
     fun getAllBreeds(minLifeExpectancy: Int) {
+        Log.d("BreedListViewModel", "getAllBreeds [LOADING]")
+        _uiState.update { BreedsListViewState.Loading }
+
         viewModelScope.launch {
+            delay(1000)
             breedsListUseCase.getAllBreeds(minLifeExpectancy).collect { resourceCase ->
                 when (resourceCase) {
                     is Resource.Loading -> {
