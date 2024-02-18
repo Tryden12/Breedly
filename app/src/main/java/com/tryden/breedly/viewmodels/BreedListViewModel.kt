@@ -62,17 +62,4 @@ class BreedListViewModel @Inject constructor(
             }
         }
     }
-
-    // Updates the breed favorite status in local db
-    fun updateIsFavoriteBreed(breed: DogBreed, isFavorite: Boolean) = viewModelScope.launch {
-        try {
-            favoriteBreedsUseCase.updateBreed(breed.id, isFavorite)
-            Log.d("BreedListViewModel", "${breed.name} updated, favorite = $isFavorite")
-        } catch (e: Exception) {
-            Log.e("BreedListViewModel", "EXCEPTION: Attempted to update breed favorite status." +
-                    " Exception: ${e.message}")
-        }
-
-    }
-
 }

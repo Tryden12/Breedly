@@ -8,10 +8,7 @@ import com.tryden.breedly.domain.DogBreedMapper
 import com.tryden.breedly.domain.model.DogBreed
 import com.tryden.breedly.utils.Resource
 import com.tryden.breedly.utils.networkBoundResource
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.flow
-import kotlinx.coroutines.flow.flowOn
 import javax.inject.Inject
 
 /**
@@ -49,6 +46,9 @@ class DataRepositoryImpl @Inject constructor(
                     }
                     localSource.insertAllBreeds(list)
                 }
+            },
+            shouldFetch = { breedList ->
+                breedList.isEmpty()
             }
         )
     }

@@ -1,6 +1,6 @@
 package com.tryden.breedly.ui.components
 
-import androidx.compose.foundation.layout.Column
+
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -62,27 +62,15 @@ fun BreedDetails(
             Spacer(modifier = modifier.padding(paddingValues))
         }
         item {
-            Column(
-                horizontalAlignment = Alignment.CenterHorizontally,
-                modifier = modifier.fillMaxWidth()
-            ) {
-                Text(
-                    text = dogBreed.name,
-                    color = MaterialTheme.colorScheme.onSurface,
-                    style = MaterialTheme.typography.titleLarge,
-                    textAlign = TextAlign.Center,
-                    modifier = modifier.padding(paddingValues)
-                )
-            }
+            BreedDetailsNameCard(dogBreed, paddingValues)
+
         }
         item {
             Spacer(modifier = modifier.padding(4.dp))
         }
         item {
             BreedAttributes(
-                dogBreed = dogBreed,
                 breedAttributesMap = breedAttributesMap,
-                viewModel = viewModel,
                 paddingValues = paddingValues
             )
         }

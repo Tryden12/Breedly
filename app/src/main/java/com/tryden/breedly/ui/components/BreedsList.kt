@@ -37,6 +37,7 @@ fun BreedsList(
                         onItemClicked = { dogBreed ->
                             onDogBreedClicked(dogBreed.id)
                         },
+                        modifier = modifier
                     )
                 }
             }

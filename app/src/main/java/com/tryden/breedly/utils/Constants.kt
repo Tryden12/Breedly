@@ -24,4 +24,7 @@ object Constants {
     const val SHEDDING        = "Shedding"
     const val LBS             = " lbs"
 
+    /** Favorite Tag **/
+    const val FAVORITE = "Favorite"
+
 }
