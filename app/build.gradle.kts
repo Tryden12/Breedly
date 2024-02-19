@@ -66,6 +66,8 @@ dependencies {
     implementation("androidx.compose.material:material:1.6.0")
     implementation("androidx.compose.material:material-icons-extended:1.6.0")
     implementation("com.google.android.material:material:1.11.0")
+    implementation("androidx.compose.material3:material3-window-size-class:1.2.0")
+
 
     // Hilt dependency injection
     implementation ("com.google.dagger:hilt-android:2.50")
@@ -97,6 +99,10 @@ dependencies {
     // Navigation animation
     implementation("com.google.accompanist:accompanist-navigation-animation:0.25.1")
 
+    // Tracing
+    implementation("androidx.tracing:tracing-ktx:1.2.0")
+
+
     // View pager
     implementation("com.google.accompanist:accompanist-pager:0.25.1")
 
@@ -104,7 +110,6 @@ dependencies {
     implementation("io.coil-kt:coil:2.4.0")
     implementation("io.coil-kt:coil-compose:2.4.0")
     implementation("io.coil-kt:coil-svg:2.2.0")
-
 
 
     implementation("androidx.core:core-ktx:1.12.0")

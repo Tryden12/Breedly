@@ -4,27 +4,27 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
-import androidx.navigation.NavHostController
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
-import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
+import com.tryden.breedly.ui.app.BreedlyAppState
 import com.tryden.breedly.ui.feature.breed_details.BreedDetailsScreen
 import com.tryden.breedly.ui.feature.breed_list.BreedsListScreen
-import com.tryden.breedly.utils.Constants.BREED_ID_KEY
+import com.tryden.breedly.utils.Constants
 
 /**
- * Composable responsible for the navigation inside of the Breedly app.
+ * NavHost for the Breedly app.
  */
-
 @Composable
-fun BreedlyNavigation(
+fun BreedlyNavHost(
+    appState: BreedlyAppState,
     modifier: Modifier = Modifier,
-    navController: NavHostController = rememberNavController(),
-    startDestination: String = Screen.Home.route,
+    startDestination: String = Screen.Home.route
 ) {
+    val navController = appState.navController
+
     // Backstack
     val backStackEntry by navController.currentBackStackEntryAsState()
     val currentRoute = backStackEntry?.destination?.route ?: startDestination
@@ -44,12 +44,12 @@ fun BreedlyNavigation(
         }
         composable(
             route = Screen.BreedDetails.route,
-            arguments = listOf(navArgument(BREED_ID_KEY) {
+            arguments = listOf(navArgument(Constants.BREED_ID_KEY) {
                 type = NavType.IntType
             })
         ) { backStackEntry ->
             val breedId: Int =
-                backStackEntry.arguments?.getInt(BREED_ID_KEY) ?: -1
+                backStackEntry.arguments?.getInt(Constants.BREED_ID_KEY) ?: -1
             BreedDetailsScreen(
                 breedId = breedId,
                 currentScreenRoute = currentRoute,
@@ -60,7 +60,5 @@ fun BreedlyNavigation(
         composable(route = Screen.Favorites.route) {
             // todo
         }
-
     }
-
 }

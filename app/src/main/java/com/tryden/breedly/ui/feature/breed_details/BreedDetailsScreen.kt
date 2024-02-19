@@ -1,14 +1,15 @@
 package com.tryden.breedly.ui.feature.breed_details
 
 import android.util.Log
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material.Scaffold
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material.ScaffoldState
 import androidx.compose.material.rememberScaffoldState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.tryden.breedly.domain.model.DogBreed
@@ -35,26 +36,19 @@ fun BreedDetailsScreen(
     currentScreenRoute: String,
     canNavigateBack: Boolean,
     navigateUp: () -> Unit,
-    scaffoldState: ScaffoldState = rememberScaffoldState(),
     modifier: Modifier = Modifier
 ) {
+    Log.d("BreedDetailsScreen", "breedId = $breedId")
 
-    Scaffold(
-        scaffoldState = scaffoldState,
-        topBar = {
-            BreedsDetailsTopAppBar(
-                currentScreenRoute = currentScreenRoute,
-                canNavigateBack = canNavigateBack,
-                navigateUp = navigateUp
-            )
-        },
-        modifier = Modifier.fillMaxSize()
-    ) { paddingValues ->
-        Log.d("BreedDetailsScreen", "breedId = $breedId")
-        // Testing
+    Column(modifier = Modifier.fillMaxWidth()) {
+        // Top Bar
+        BreedsDetailsTopAppBar(
+            currentScreenRoute = currentScreenRoute,
+            canNavigateBack = canNavigateBack,
+            navigateUp = navigateUp
+        )
 
         val viewState by viewModel.uiState.collectAsStateWithLifecycle()
-
         when (viewState) {
             is BreedDetailsViewState.Loading -> {
                 Log.d("BreedDetailsScreen", "State LOADING")
@@ -70,7 +64,7 @@ fun BreedDetailsScreen(
                 BreedDetails(
                     dogBreed = dogBreed,
                     viewModel = viewModel,
-                    modifier = modifier.padding(paddingValues)
+                    modifier = modifier
                 )
             }
         }

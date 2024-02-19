@@ -13,12 +13,54 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavDestination
+import androidx.navigation.NavDestination.Companion.hierarchy
 import com.tryden.breedly.R
 import com.tryden.breedly.ui.navigation.Screen
+import com.tryden.breedly.ui.navigation.TopLevelDestination
 
 /**
- * Composables that display the top bar.
+ * Composables that display either bottom or top app bar.
  */
+
+
+/**
+ * Bottom navigation bar with content slot. Wraps Material 3 [NavigationBar].
+ *
+ * @param modifier Modifier to be applied to the navigation bar.
+ * @param content Destinations inside the navigation bar. This should contain multiple
+ * [NavigationBarItem]s.
+ */
+@Composable
+fun BreedlyBottomBar(
+    destinations: List<TopLevelDestination>,
+    onNavigateToDestination: (TopLevelDestination) -> Unit,
+    currentDestination: NavDestination?,
+    modifier: Modifier = Modifier
+) {
+    BreedlyNavigationBar(modifier = modifier) {
+        destinations.forEach { destination ->
+            val selected = currentDestination.isTopLevelDestinationInHierarchy(destination)
+            BreedlyNavigationBarItem(
+                selected = selected,
+                onClick = { onNavigateToDestination(destination) },
+                icon = {
+                    Icon(
+                        imageVector = destination.unselectedIcon, contentDescription = null
+                    )
+                },
+                selectedIcon = {
+                    Icon(
+                        imageVector = destination.selectedIcon, contentDescription = null
+                    )
+                },
+                label = { Text(text = destination.iconTextId) },
+            )
+        }
+    }
+}
+
+/** Top bar for BreedsListScreen **/
 @Composable
 fun BreedsListTopAppBar(
     modifier: Modifier = Modifier
@@ -36,6 +78,7 @@ fun BreedsListTopAppBar(
 }
 
 
+/** Top bar for BreedsDetailsScreen **/
 @Composable
 fun BreedsDetailsTopAppBar(
     currentScreenRoute: String?,
@@ -71,3 +114,8 @@ fun BreedsDetailsTopAppBar(
         }
     )
 }
+
+private fun NavDestination?.isTopLevelDestinationInHierarchy(destination: TopLevelDestination) =
+    this?.hierarchy?.any {
+        it.route?.contains(destination.name, true) ?: false
+    } ?: false

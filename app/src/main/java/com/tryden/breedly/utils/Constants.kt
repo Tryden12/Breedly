@@ -14,6 +14,11 @@ object Constants {
     const val FAVORITES_ROUTE     = "favorites"
     const val BREED_ID_KEY        = "breedId"
 
+    /** Icon Titles **/
+    const val LIST = "List"
+    const val FAVORITES = "Favorites"
+
+
     /** Error State **/
     const val ERROR_MESSAGE_TO_USER = "Oh no! There seems to be an issue. Please try again soon."
 
