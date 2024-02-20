@@ -16,7 +16,7 @@ import com.tryden.breedly.ui.common.BreedsListTopAppBar
 
 /**
  * Composable screen for displaying breeds list.
- * We use the BreedsListViewState to handle UI state for this screen.
+ * BreedsListViewState used to handle UI state for this screen.
  */
 
 sealed interface BreedsListViewState {

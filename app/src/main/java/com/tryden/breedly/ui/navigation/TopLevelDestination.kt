@@ -24,9 +24,9 @@ enum class TopLevelDestination(
         titleTextId = LIST
     ),
     FAVORITES(
-    selectedIcon = BreedlyIcons.Favorite,
-    unselectedIcon = BreedlyIcons.FavoriteBorder,
-    iconTextId = Constants.FAVORITES,
-    titleTextId = Constants.FAVORITES
+        selectedIcon = BreedlyIcons.Favorite,
+        unselectedIcon = BreedlyIcons.FavoriteBorder,
+        iconTextId = Constants.FAVORITES,
+        titleTextId = Constants.FAVORITES
     )
 }

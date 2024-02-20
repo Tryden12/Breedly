@@ -11,6 +11,7 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.navArgument
 import com.tryden.breedly.ui.app.BreedlyAppState
 import com.tryden.breedly.ui.feature.breed_details.BreedDetailsScreen
+import com.tryden.breedly.ui.feature.breed_favorites.FavoritesScreen
 import com.tryden.breedly.ui.feature.breed_list.BreedsListScreen
 import com.tryden.breedly.utils.Constants
 
@@ -58,7 +59,9 @@ fun BreedlyNavHost(
             )
         }
         composable(route = Screen.Favorites.route) {
-            // todo
+            FavoritesScreen(onDogBreedClicked = {dogBreedId ->
+                navController.navigate(route = Screen.Favorites.route)
+            })
         }
     }
 }
