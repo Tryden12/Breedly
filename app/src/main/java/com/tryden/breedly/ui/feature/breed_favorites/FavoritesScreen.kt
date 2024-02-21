@@ -1,11 +1,12 @@
 package com.tryden.breedly.ui.feature.breed_favorites
 
 import android.util.Log
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.material3.Text
+import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
@@ -14,6 +15,7 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.tryden.breedly.domain.model.DogBreed
+import com.tryden.breedly.ui.common.BreedlyDivider
 import com.tryden.breedly.ui.common.BreedsListTopAppBar
 import com.tryden.breedly.ui.common.ErrorScreen
 import com.tryden.breedly.ui.feature.breed_list.LoadingBreedList
@@ -62,21 +64,24 @@ fun FavoritesScreen(
                 val breedsList = (viewState as FavoriteBreedsViewState.Success).breedsList
                 
                 LazyColumn(
+                    verticalArrangement = Arrangement.spacedBy(12.dp),
                     modifier = Modifier.fillMaxWidth()
                 ) {
-                    items(breedsList.size) {
-                        breedsList.forEach { dogBreed ->
+                    breedsList.let { list ->
+                        itemsIndexed(list) { index, dogBreed ->
                             FavoriteBreedCard(
                                 breed = dogBreed,
                                 onDogBreedClicked = {
                                     onDogBreedClicked(dogBreed.id)
                                 }
                             )
+                            if (index < list.lastIndex) {
+                                BreedlyDivider()
+                            }
                         }
                     }
                 }
             }
-                
         }
     }
 }

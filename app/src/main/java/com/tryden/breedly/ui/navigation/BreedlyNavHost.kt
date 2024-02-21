@@ -59,8 +59,9 @@ fun BreedlyNavHost(
             )
         }
         composable(route = Screen.Favorites.route) {
-            FavoritesScreen(onDogBreedClicked = {dogBreedId ->
-                navController.navigate(route = Screen.Favorites.route)
+            FavoritesScreen(
+                onDogBreedClicked = { dogBreedId ->
+                navController.navigate(route = Screen.BreedDetails.createRoute(dogBreedId))
             })
         }
     }

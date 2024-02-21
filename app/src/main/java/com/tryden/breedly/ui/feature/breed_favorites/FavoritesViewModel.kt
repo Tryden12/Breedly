@@ -33,7 +33,7 @@ class FavoritesViewModel @Inject constructor(
         // Fetch favorites
         viewModelScope.launch {
             favoriteBreedsUseCase.getFavoriteBreeds().collect { list ->
-                _uiState.update { FavoriteBreedsViewState.Success(breedsList = list) }
+                _uiState.update { return@update FavoriteBreedsViewState.Success(breedsList = list) }
                 Log.d("FavoritesViewModel", "getFavorites SUCCESS: list size = ${list.size}")
             }
         }

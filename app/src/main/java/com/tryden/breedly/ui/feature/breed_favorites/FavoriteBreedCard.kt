@@ -1,6 +1,7 @@
 package com.tryden.breedly.ui.feature.breed_favorites
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -36,7 +37,7 @@ fun FavoriteBreedCard(
     Row(
         verticalAlignment = Alignment.CenterVertically ,
         horizontalArrangement = Arrangement.Start,
-        modifier = modifier.fillMaxWidth()
+        modifier = modifier.fillMaxWidth().clickable { onDogBreedClicked(breed.id) }
     ) {
         Image(
             painter = rememberAsyncImagePainter(model = breed.imageLink),
