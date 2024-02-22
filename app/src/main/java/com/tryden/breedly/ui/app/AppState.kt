@@ -14,10 +14,11 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navOptions
-import com.tryden.breedly.ui.navigation.Screen
+import com.tryden.breedly.ui.navigation.Screens
 import com.tryden.breedly.ui.navigation.TopLevelDestination
 import com.tryden.breedly.ui.navigation.TopLevelDestination.*
 import com.tryden.breedly.utils.Constants
+import com.tryden.breedly.utils.Constants.APP_NAME
 
 /**
  * Breedly application state.
@@ -36,12 +37,27 @@ class BreedlyAppState(
         @Composable get() = navController
             .currentBackStackEntryAsState().value?.destination
 
+    val currentRoute: String?
+        @Composable get() = navController
+            .currentBackStackEntryAsState().value?.destination?.route
+
     val currentTopLevelDestination: TopLevelDestination?
         @Composable get() = when (currentDestination?.route) {
-            Constants.HOME_ROUTE -> BREEDS_LIST
+            Constants.BREEDS_LIST_ROUTE -> BREEDS_LIST
             Constants.FAVORITES_ROUTE -> FAVORITES
             else -> null
         }
+
+    val currentDestinationName: String
+        @Composable get() = when (currentDestination?.route) {
+            Constants.BREEDS_LIST_ROUTE -> Constants.BREED_LIST
+            Constants.BREED_DETAILS_ROUTE -> Constants.BREED_DETAILS
+            Constants.FAVORITES_ROUTE -> Constants.FAVORITES
+            else ->  APP_NAME
+        }
+
+    val canNavigateBack: Boolean
+        @Composable get() = navController.previousBackStackEntry != null
 
     val shouldShowBottomBar: Boolean
         get() = windowSizeClass.widthSizeClass == WindowWidthSizeClass.Compact
@@ -49,6 +65,13 @@ class BreedlyAppState(
     // todo:
 //    val shouldShowNavRail: Boolean
 //        get() = !shouldShowNavRail
+
+    /**
+     * Finds the current destination
+     */
+    // Backstack
+//    val backStackEntry by navController.currentBackStackEntryAsState()
+//    val currentRoute = backStackEntry?.destination?.route ?: startDestination
 
     /**
      * Map of top level destinations to be used in the TopBar, BottomBar and NavRail. The key is the
@@ -80,11 +103,15 @@ class BreedlyAppState(
             }
 
             when (topLevelDestination) {
-                BREEDS_LIST -> navController.navigate(route = Screen.Home.route)
-                FAVORITES -> navController.navigate(route = Screen.Favorites.route)
+                BREEDS_LIST -> navController.navigate(route = Screens.BREEDS_LIST.route)
+                FAVORITES -> navController.navigate(route = Screens.FAVORITES.route)
             }
         }
 
+    }
+
+    fun navigateUp() {
+        navController.navigateUp()
     }
 }
 

@@ -2,7 +2,7 @@
     <string name="app_name">Breedly</string>
 
     <!-- Screen Names -->
-    <string name="home">Home</string>
+    <string name="breeds_list">Breeds List</string>
     <string name="breed_details">Details</string>
     <string name="favorites">Favorites</string>
 

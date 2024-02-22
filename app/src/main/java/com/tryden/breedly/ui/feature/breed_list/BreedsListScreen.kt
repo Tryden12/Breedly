@@ -12,7 +12,6 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.tryden.breedly.domain.model.DogBreed
 import com.tryden.breedly.ui.common.ErrorScreen
-import com.tryden.breedly.ui.common.BreedsListTopAppBar
 
 /**
  * Composable screen for displaying breeds list.
@@ -39,8 +38,6 @@ fun BreedsListScreen(
     val viewState by viewModel.uiState.collectAsStateWithLifecycle()
 
     Column(modifier.fillMaxWidth()) {
-        // Top Bar
-        BreedsListTopAppBar()
 
         when (viewState) {
             is BreedsListViewState.Loading -> {

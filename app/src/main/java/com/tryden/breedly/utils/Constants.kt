@@ -1,6 +1,8 @@
 package com.tryden.breedly.utils
 
 object Constants {
+    const val APP_NAME = "Breedly"
+
 
     /** API **/
     const val BASE_URL      = "https://api.api-ninjas.com/v1/"
@@ -9,10 +11,15 @@ object Constants {
     const val DB_NAME       = "dog_breeds_db"
 
     /** Route **/
-    const val HOME_ROUTE          = "home"
+    const val BREEDS_LIST_ROUTE   = "breedsList"
     const val BREED_DETAILS_ROUTE = "details/{breedId}"
     const val FAVORITES_ROUTE     = "favorites"
     const val BREED_ID_KEY        = "breedId"
+
+    /** Screen Names **/
+    const val BREED_LIST = "Breed List"
+    const val BREED_DETAILS = "Details"
+
 
     /** Icon Titles **/
     const val LIST = "List"

@@ -24,7 +24,7 @@ fun BreedlyNavigationBar(
     NavigationBar(
         modifier = modifier,
         contentColor = BreedlyNavigationDefaults.navigationContentColor(),
-        tonalElevation = 0.dp,
+        tonalElevation = 2.dp,
         content = content,
     )
 }

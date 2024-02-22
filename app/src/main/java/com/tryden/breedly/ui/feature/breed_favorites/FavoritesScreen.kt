@@ -16,7 +16,6 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.tryden.breedly.domain.model.DogBreed
 import com.tryden.breedly.ui.common.BreedlyDivider
-import com.tryden.breedly.ui.common.BreedsListTopAppBar
 import com.tryden.breedly.ui.common.ErrorScreen
 import com.tryden.breedly.ui.feature.breed_list.LoadingBreedList
 
@@ -46,8 +45,6 @@ fun FavoritesScreen(
     val viewState by viewModel.uiState.collectAsStateWithLifecycle()
     
     Column(modifier = modifier.fillMaxWidth()) {
-        // Top bar TODO: update to have favorites title in top bar
-        BreedsListTopAppBar()
         
         when(viewState) {
             is FavoriteBreedsViewState.Loading -> {

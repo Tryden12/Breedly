@@ -22,7 +22,7 @@ import com.tryden.breedly.utils.Constants
 fun BreedlyNavHost(
     appState: BreedlyAppState,
     modifier: Modifier = Modifier,
-    startDestination: String = Screen.Home.route
+    startDestination: String = Screens.BREEDS_LIST.route
 ) {
     val navController = appState.navController
 
@@ -32,19 +32,19 @@ fun BreedlyNavHost(
 
     NavHost(
         navController = navController,
-        startDestination = Screen.Home.route,
+        startDestination = Screens.BREEDS_LIST.route,
         modifier = modifier
     ) {
-        composable(route = Screen.Home.route) {
+        composable(route = Screens.BREEDS_LIST.route) {
             BreedsListScreen(
                 onDogBreedClicked = { dogBreedId ->
-                    navController.navigate( route = Screen.BreedDetails.createRoute(dogBreedId) )
+                    navController.navigate( route = Screens.BREED_DETAILS.createRoute(dogBreedId) )
                 },
                 modifier = Modifier.fillMaxWidth()
             )
         }
         composable(
-            route = Screen.BreedDetails.route,
+            route = Screens.BREED_DETAILS.route,
             arguments = listOf(navArgument(Constants.BREED_ID_KEY) {
                 type = NavType.IntType
             })
@@ -52,16 +52,13 @@ fun BreedlyNavHost(
             val breedId: Int =
                 backStackEntry.arguments?.getInt(Constants.BREED_ID_KEY) ?: -1
             BreedDetailsScreen(
-                breedId = breedId,
-                currentScreenRoute = currentRoute,
-                canNavigateBack = navController.previousBackStackEntry != null,
-                navigateUp = { navController.navigateUp() },
+                breedId = breedId
             )
         }
-        composable(route = Screen.Favorites.route) {
+        composable(route = Screens.FAVORITES.route) {
             FavoritesScreen(
                 onDogBreedClicked = { dogBreedId ->
-                navController.navigate(route = Screen.BreedDetails.createRoute(dogBreedId))
+                navController.navigate(route = Screens.BREED_DETAILS.createRoute(dogBreedId))
             })
         }
     }

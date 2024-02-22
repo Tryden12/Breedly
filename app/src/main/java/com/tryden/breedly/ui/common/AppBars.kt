@@ -16,8 +16,8 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavDestination
 import androidx.navigation.NavDestination.Companion.hierarchy
 import com.tryden.breedly.R
-import com.tryden.breedly.ui.navigation.Screen
 import com.tryden.breedly.ui.navigation.TopLevelDestination
+import com.tryden.breedly.utils.Constants
 
 /**
  * Composables that display either bottom or top app bar.
@@ -60,18 +60,53 @@ fun BreedlyBottomBar(
     }
 }
 
+/**
+ * Default top bar for Breedly app.
+ * This is used in place of other app bars to just display the app name as title.
+ */
+@Composable
+fun BreedlyDefaultTopAppBar(modifier: Modifier = Modifier) {
+    Log.d("TopAppBar", "BreedlyDefaultTopAppBar used")
+    TopAppBar(
+        title = { Text(text = Constants.APP_NAME) },
+        backgroundColor = MaterialTheme.colorScheme.surface,
+        contentColor = MaterialTheme.colorScheme.onSurface,
+        elevation = 0.dp,
+        modifier = modifier.fillMaxWidth()
+    )
+}
+
 /** Top bar for BreedsListScreen **/
 @Composable
 fun BreedsListTopAppBar(
+    title: String,
     modifier: Modifier = Modifier
 ) {
     TopAppBar(
-        title = { Text(text = stringResource(id = R.string.app_name)) },
+        title = { Text(text = title) },
         actions = {
             // todo actions: search, filter, sort
         },
-        backgroundColor = MaterialTheme.colorScheme.background,
-        contentColor = MaterialTheme.colorScheme.onBackground,
+        backgroundColor = MaterialTheme.colorScheme.surface,
+        contentColor = MaterialTheme.colorScheme.onSurface,
+        elevation = 0.dp,
+        modifier = modifier.fillMaxWidth()
+    )
+}
+
+/** Top bar for FavoritesScreen **/
+@Composable
+fun FavoritesTopAppBar(
+    title: String,
+    modifier: Modifier = Modifier
+) {
+    TopAppBar(
+        title = { Text(text = title) },
+        actions = {
+            // todo actions: edit
+        },
+        backgroundColor = MaterialTheme.colorScheme.surface,
+        contentColor = MaterialTheme.colorScheme.onSurface,
         elevation = 0.dp,
         modifier = modifier.fillMaxWidth()
     )
@@ -81,26 +116,16 @@ fun BreedsListTopAppBar(
 /** Top bar for BreedsDetailsScreen **/
 @Composable
 fun BreedsDetailsTopAppBar(
-    currentScreenRoute: String?,
+    title: String,
     canNavigateBack: Boolean,
     navigateUp: () -> Unit,
     modifier: Modifier = Modifier
 ) {
-    Log.d("BreedlyAppBar", "currentScreenRoute: $currentScreenRoute")
-    var currentScreenName = stringResource(id = R.string.app_name)
-    if (!currentScreenRoute.isNullOrEmpty()) {
-        currentScreenName = if (Screen.BreedDetails.route == currentScreenRoute) {
-            stringResource(Screen.BreedDetails.resourceId)
-        } else {
-            stringResource(id = R.string.app_name)
-        }
-    }
-    Log.d("BreedlyAppBar", "currentScreenName: $currentScreenName")
-
     TopAppBar(
-        title = { Text(text = currentScreenName) },
+        title = { Text(text = title) },
         backgroundColor = MaterialTheme.colorScheme.surface,
         contentColor = MaterialTheme.colorScheme.onSurface,
+        elevation = 0.dp,
         modifier = modifier,
         navigationIcon = {
             if (canNavigateBack) {
