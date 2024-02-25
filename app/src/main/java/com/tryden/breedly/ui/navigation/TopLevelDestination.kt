@@ -3,7 +3,7 @@ package com.tryden.breedly.ui.navigation
 import androidx.compose.ui.graphics.vector.ImageVector
 import com.tryden.breedly.ui.common.BreedlyIcons
 import com.tryden.breedly.utils.Constants
-import com.tryden.breedly.utils.Constants.LIST
+import com.tryden.breedly.utils.Constants.BREEDS
 
 /**
  * Type for the top level destinations in the application. Each of these destinations
@@ -20,8 +20,8 @@ enum class TopLevelDestination(
     BREEDS_LIST(
         selectedIcon = BreedlyIcons.List,
         unselectedIcon = BreedlyIcons.ListBorder,
-        iconTextId = LIST,
-        titleTextId = LIST
+        iconTextId = BREEDS,
+        titleTextId = BREEDS
     ),
     FAVORITES(
         selectedIcon = BreedlyIcons.Favorite,

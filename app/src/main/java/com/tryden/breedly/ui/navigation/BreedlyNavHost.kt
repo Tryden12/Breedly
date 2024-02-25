@@ -22,7 +22,7 @@ import com.tryden.breedly.utils.Constants
 fun BreedlyNavHost(
     appState: BreedlyAppState,
     modifier: Modifier = Modifier,
-    startDestination: String = Screens.BREEDS_LIST.route
+    startDestination: String = Screen.BreedsList.route
 ) {
     val navController = appState.navController
 
@@ -32,19 +32,19 @@ fun BreedlyNavHost(
 
     NavHost(
         navController = navController,
-        startDestination = Screens.BREEDS_LIST.route,
+        startDestination = Screen.BreedsList.route,
         modifier = modifier
     ) {
-        composable(route = Screens.BREEDS_LIST.route) {
+        composable(route = Screen.BreedsList.route) {
             BreedsListScreen(
                 onDogBreedClicked = { dogBreedId ->
-                    navController.navigate( route = Screens.BREED_DETAILS.createRoute(dogBreedId) )
+                    navController.navigate( route = Screen.BreedDetails.createRoute(dogBreedId) )
                 },
                 modifier = Modifier.fillMaxWidth()
             )
         }
         composable(
-            route = Screens.BREED_DETAILS.route,
+            route = Screen.BreedDetails.route,
             arguments = listOf(navArgument(Constants.BREED_ID_KEY) {
                 type = NavType.IntType
             })
@@ -55,10 +55,10 @@ fun BreedlyNavHost(
                 breedId = breedId
             )
         }
-        composable(route = Screens.FAVORITES.route) {
+        composable(route = Screen.Favorites.route) {
             FavoritesScreen(
                 onDogBreedClicked = { dogBreedId ->
-                navController.navigate(route = Screens.BREED_DETAILS.createRoute(dogBreedId))
+                navController.navigate(route = Screen.BreedDetails.createRoute(dogBreedId))
             })
         }
     }

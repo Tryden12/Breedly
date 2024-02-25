@@ -22,7 +22,7 @@ object Constants {
 
 
     /** Icon Titles **/
-    const val LIST = "List"
+    const val BREEDS = "Breeds"
     const val FAVORITES = "Favorites"
 
 

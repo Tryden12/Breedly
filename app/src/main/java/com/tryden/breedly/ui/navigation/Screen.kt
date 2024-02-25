@@ -10,7 +10,7 @@ import com.tryden.breedly.utils.Constants.BREEDS_LIST_ROUTE
  * Sealed class for Breedly app screens.
  */
 sealed class Screen(val route: String, @StringRes val resourceId: Int) {
-    data object Home : Screen(BREEDS_LIST_ROUTE, R.string.breeds_list)
+    data object BreedsList : Screen(BREEDS_LIST_ROUTE, R.string.breeds_list)
     data object BreedDetails : Screen(BREED_DETAILS_ROUTE, R.string.breed_details) {
         fun createRoute(breedId: Int) = "details/$breedId"
     }

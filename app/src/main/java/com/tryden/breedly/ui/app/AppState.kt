@@ -14,7 +14,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navOptions
-import com.tryden.breedly.ui.navigation.Screens
+import com.tryden.breedly.ui.navigation.Screen
 import com.tryden.breedly.ui.navigation.TopLevelDestination
 import com.tryden.breedly.ui.navigation.TopLevelDestination.*
 import com.tryden.breedly.utils.Constants
@@ -117,8 +117,8 @@ class BreedlyAppState(
             }
 
             when (topLevelDestination) {
-                BREEDS_LIST -> navController.navigate(route = Screens.BREEDS_LIST.route)
-                FAVORITES -> navController.navigate(route = Screens.FAVORITES.route)
+                BREEDS_LIST -> navController.navigate(route = Screen.BreedsList.route)
+                FAVORITES -> navController.navigate(route = Screen.Favorites.route)
             }
         }
 
