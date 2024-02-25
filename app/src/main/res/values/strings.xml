@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">Breedly</string>
+    <string name="not_connected">⚠️ You aren’t connected to the internet</string>
+
 
     <!-- Screen Names -->
     <string name="breeds_list">Breeds List</string>

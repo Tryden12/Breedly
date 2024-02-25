@@ -19,6 +19,10 @@ import com.tryden.breedly.ui.navigation.TopLevelDestination
 import com.tryden.breedly.ui.navigation.TopLevelDestination.*
 import com.tryden.breedly.utils.Constants
 import com.tryden.breedly.utils.Constants.APP_NAME
+import com.tryden.breedly.utils.NetworkMonitor
+import kotlinx.coroutines.flow.SharingStarted
+import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.stateIn
 
 /**
  * Breedly application state.
@@ -30,9 +34,19 @@ import com.tryden.breedly.utils.Constants.APP_NAME
 @Stable
 class BreedlyAppState(
     val navController: NavHostController,
+    networkMonitor: NetworkMonitor,
     val coroutineScope: CoroutineScope,
     val windowSizeClass: WindowSizeClass
 ) {
+
+    val isOffline = networkMonitor.isOnline
+        .map(Boolean::not)
+        .stateIn(
+            scope = coroutineScope,
+            started = SharingStarted.WhileSubscribed(5_000),
+            initialValue = false,
+        )
+
     val currentDestination: NavDestination?
         @Composable get() = navController
             .currentBackStackEntryAsState().value?.destination
@@ -118,16 +132,19 @@ class BreedlyAppState(
 @Composable
 fun rememberBreedlyAppState(
     windowSizeClass: WindowSizeClass,
+    networkMonitor: NetworkMonitor,
     coroutineScope: CoroutineScope = rememberCoroutineScope(),
     navController: NavHostController = rememberNavController(),
 ) : BreedlyAppState {
     return remember(
         navController,
+        networkMonitor,
         coroutineScope,
-        windowSizeClass
+        windowSizeClass,
     ) {
         BreedlyAppState(
             navController,
+            networkMonitor,
             coroutineScope,
             windowSizeClass
         )

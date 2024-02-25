@@ -12,11 +12,20 @@ import androidx.compose.foundation.layout.safeDrawing
 import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.SnackbarDuration
+import androidx.compose.material3.SnackbarHost
+import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.windowsizeclass.WindowSizeClass
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.testTag
+import androidx.compose.ui.res.stringResource
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.tryden.breedly.R
 import com.tryden.breedly.ui.common.BreedlyBottomBar
 import com.tryden.breedly.ui.common.BreedlyDefaultTopAppBar
 import com.tryden.breedly.ui.common.BreedsDetailsTopAppBar
@@ -26,17 +35,40 @@ import com.tryden.breedly.ui.navigation.BreedlyNavHost
 import com.tryden.breedly.utils.Constants.BREEDS_LIST_ROUTE
 import com.tryden.breedly.utils.Constants.BREED_DETAILS_ROUTE
 import com.tryden.breedly.utils.Constants.FAVORITES_ROUTE
+import com.tryden.breedly.utils.NetworkMonitor
 
 /**
  * Root composable for the Breedly app.
  */
 @Composable
 fun BreedlyApp(
+    networkMonitor: NetworkMonitor,
     windowSizeClass: WindowSizeClass,
-    appState: BreedlyAppState = rememberBreedlyAppState(windowSizeClass = windowSizeClass)
+    appState: BreedlyAppState = rememberBreedlyAppState(
+        windowSizeClass = windowSizeClass,
+        networkMonitor = networkMonitor
+    )
 ) {
     val destination = appState.currentTopLevelDestination
     val currentRoute = appState.currentRoute
+
+    val snackbarHostState = remember { SnackbarHostState() }
+
+    val isOffline by appState.isOffline.collectAsStateWithLifecycle()
+
+    // If user is not connected to the internet show a snack bar to inform them.
+    val notConnectedMessage = stringResource(R.string.not_connected)
+    LaunchedEffect(isOffline) {
+        if (isOffline) {
+            Log.d("BreedlyApp", "BreedlyApp NetworkMonitor status: OFFLINE")
+            snackbarHostState.showSnackbar(
+                message = notConnectedMessage,
+                duration = SnackbarDuration.Indefinite,
+            )
+        } else {
+            Log.d("BreedlyApp", "BreedlyApp NetworkMonitor status: ONLINE")
+        }
+    }
 
     Scaffold(
         modifier = Modifier,
@@ -65,8 +97,9 @@ fun BreedlyApp(
                     modifier = Modifier.testTag("BreedlyBottomBar")
                 )
             }
-        }
-    ) { paddingValues ->
+        },
+        snackbarHost = { SnackbarHost(snackbarHostState) },
+        ) { paddingValues ->
         Log.d("BreedlyApp", "BreedlyApp currentRoute = $currentRoute")
         Row(
             Modifier

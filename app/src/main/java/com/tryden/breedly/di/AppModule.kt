@@ -6,6 +6,8 @@ import com.tryden.breedly.data.repository.DataRepositoryImpl
 import com.tryden.breedly.domain.DogBreedMapper
 import com.tryden.breedly.domain.Mapper
 import com.tryden.breedly.domain.model.DogBreed
+import com.tryden.breedly.utils.ConnectivityManagerNetworkMonitor
+import com.tryden.breedly.utils.NetworkMonitor
 import dagger.Binds
 import dagger.Module
 import dagger.Provides
@@ -25,4 +27,9 @@ interface AppModule {
     @Singleton
     fun bindDogBreedMapper(dogBreedMapper: DogBreedMapper) : Mapper<DogBreed, DogBreedResponse>
 
+    @Binds
+    @Singleton
+    fun bindsNetworkMonitor(
+        networkMonitor: ConnectivityManagerNetworkMonitor,
+    ): NetworkMonitor
 }

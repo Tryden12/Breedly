@@ -11,17 +11,24 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.tryden.breedly.ui.app.BreedlyApp
 import com.tryden.breedly.ui.theme.BreedlyTheme
+import com.tryden.breedly.utils.NetworkMonitor
 import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 @OptIn(ExperimentalMaterial3WindowSizeClassApi::class)
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
+
+    @Inject
+    lateinit var networkMonitor: NetworkMonitor
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
             BreedlyTheme {
-//                BreedlyNavGraph()
-                BreedlyApp(windowSizeClass = calculateWindowSizeClass(activity = this))
+                BreedlyApp(
+                    windowSizeClass = calculateWindowSizeClass(activity = this),
+                    networkMonitor = networkMonitor
+                )
             }
         }
     }
