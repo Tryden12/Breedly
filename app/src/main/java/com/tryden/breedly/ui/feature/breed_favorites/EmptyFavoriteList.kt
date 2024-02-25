@@ -1,4 +1,4 @@
-package com.tryden.breedly.ui.common
+package com.tryden.breedly.ui.feature.breed_favorites
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -17,13 +17,13 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.tryden.breedly.R
-import com.tryden.breedly.utils.Constants.ERROR_MESSAGE_TO_USER
+import com.tryden.breedly.utils.Constants.EMPTY_LIST
 
 /**
  * Composable for error states.
  */
 @Composable
-fun ErrorScreen() {
+fun EmptyFavoritesList() {
     Column(
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -32,13 +32,13 @@ fun ErrorScreen() {
             .padding(30.dp)
     ) {
         Icon(
-            painter = painterResource(id = R.drawable.error_state_img),
+            painter = painterResource(id = R.drawable.ic_empty_folder),
             contentDescription = "",
             modifier = Modifier.fillMaxWidth(.3f)
         )
         Spacer(modifier = Modifier.padding(15.dp))
         Text(
-            text = ERROR_MESSAGE_TO_USER,
+            text = EMPTY_LIST,
             textAlign = TextAlign.Center,
             style = MaterialTheme.typography.bodyLarge
         )
@@ -47,6 +47,6 @@ fun ErrorScreen() {
 
 @Preview
 @Composable
-fun ErrorScreenPreview() {
-    ErrorScreen()
+fun EmptyFavoritesListPreview() {
+    EmptyFavoritesList()
 }

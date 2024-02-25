@@ -50,7 +50,7 @@ fun FavoritesScreen(
             is FavoriteBreedsViewState.Loading -> {
                 Log.d("FavoritesScreen", "State LOADING")
                 // todo loading state
-                LoadingBreedList()
+                LoadingFavorites()
             }
             is FavoriteBreedsViewState.Error -> {
                 Log.d("FavoritesScreen", "State ERROR")
@@ -59,21 +59,24 @@ fun FavoritesScreen(
             is FavoriteBreedsViewState.Success -> {
                 Log.d("FavoritesScreen", "State SUCCESS")
                 val breedsList = (viewState as FavoriteBreedsViewState.Success).breedsList
-                
-                LazyColumn(
-                    verticalArrangement = Arrangement.spacedBy(12.dp),
-                    modifier = Modifier.fillMaxWidth()
-                ) {
-                    breedsList.let { list ->
-                        itemsIndexed(list) { index, dogBreed ->
-                            FavoriteBreedCard(
-                                breed = dogBreed,
-                                onDogBreedClicked = {
-                                    onDogBreedClicked(dogBreed.id)
+
+                if (breedsList.isEmpty()) { EmptyFavoritesList() }
+                else {
+                    LazyColumn(
+                        verticalArrangement = Arrangement.spacedBy(12.dp),
+                        modifier = Modifier.fillMaxWidth()
+                    ) {
+                        breedsList.let { list ->
+                            itemsIndexed(list) { index, dogBreed ->
+                                FavoriteBreedCard(
+                                    breed = dogBreed,
+                                    onDogBreedClicked = {
+                                        onDogBreedClicked(dogBreed.id)
+                                    }
+                                )
+                                if (index < list.lastIndex) {
+                                    BreedlyDivider()
                                 }
-                            )
-                            if (index < list.lastIndex) {
-                                BreedlyDivider()
                             }
                         }
                     }

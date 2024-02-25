@@ -26,8 +26,11 @@ object Constants {
     const val FAVORITES = "Favorites"
 
 
-    /** Error State **/
+    /** Error & Empty States **/
     const val ERROR_MESSAGE_TO_USER = "Oh no! There seems to be an issue. Please try again soon."
+    const val EMPTY_LIST = "Your favorites list is empty. You can view your favorite breeds here once " +
+            "you've made your selection(s)."
+
 
     /** Attribute Labels & value addition(s) **/
     const val TRAINABILITY    = "Trainability"

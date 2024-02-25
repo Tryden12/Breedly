@@ -33,7 +33,7 @@ class BreedListViewModel @Inject constructor(
         _uiState.update { BreedsListViewState.Loading }
 
         viewModelScope.launch {
-            delay(1000)
+            delay(500)
             breedsListUseCase.getAllBreeds(minLifeExpectancy).collect { resourceCase ->
                 when (resourceCase) {
                     is Resource.Loading -> {
