@@ -1,13 +1,25 @@
 package com.tryden.breedly.ui.theme
 import androidx.compose.ui.graphics.Color
 
+val White = Color(0xFFFFFFFF)
+
+val Gray10 = Color(0xFFE7E7E7)
+val Gray20 = Color(0xFFCACACA)
+val Gray50 = Color(0xFF929292)
+val Gray75 = Color(0xFF585858)
+val Gray90 = Color(0xFF363636)
+
+val Pink90 = Color(0xFFE4AFC1)
+val Pink80 = Color(0xFFCC5F85)
+val Pink20 = Color(0xFFDA195B)
+
+
 internal val Blue10 = Color(0xFF001F28)
 internal val Blue20 = Color(0xFF003544)
 internal val Blue30 = Color(0xFF004D61)
 internal val Blue40 = Color(0xFF006780)
 internal val Blue80 = Color(0xFF5DD5FC)
 internal val Blue90 = Color(0xFFB8EAFF)
-internal val DarkBlueGray90 = Color(0xFFF4F7FD)
 internal val DarkGreen10 = Color(0xFF0D1F12)
 internal val DarkGreen20 = Color(0xFF223526)
 internal val DarkGreen30 = Color(0xFF394B3C)
@@ -28,6 +40,7 @@ internal val Green10 = Color(0xFF00210B)
 internal val Green20 = Color(0xFF003919)
 internal val Green30 = Color(0xFF005227)
 internal val Green40 = Color(0xFF006D36)
+internal val Green50 = Color(0xFF37A262)
 internal val Green80 = Color(0xFF0EE37C)
 internal val Green90 = Color(0xFF5AFF9D)
 internal val GreenGray30 = Color(0xFF414941)
@@ -64,8 +77,6 @@ internal val Teal30 = Color(0xFF214D56)
 internal val Teal40 = Color(0xFF3A656F)
 internal val Teal80 = Color(0xFFA2CED9)
 internal val Teal90 = Color(0xFFBEEAF6)
-internal val Pink40 = Color(0xFFE4AFC1)
-internal val Pink90 = Color(0xFFDA195B)
 
 
 

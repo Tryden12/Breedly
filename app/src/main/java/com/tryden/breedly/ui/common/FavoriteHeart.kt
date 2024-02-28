@@ -33,7 +33,7 @@ fun FavoriteHeart(
 
     Icon(
         tint = if (isFavorite) MaterialTheme.colorScheme.onTertiary
-        else MaterialTheme.colorScheme.primary,
+        else MaterialTheme.colorScheme.onTertiary,
         imageVector =
         if (isFavorite) Icons.Filled.Favorite
         else Icons.Filled.FavoriteBorder,

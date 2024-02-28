@@ -72,7 +72,7 @@ fun BreedlyApp(
 
     Scaffold(
         modifier = Modifier,
-        containerColor = Color.Transparent,
+//        containerColor = Color.Transparent,
         contentColor = MaterialTheme.colorScheme.onBackground,
         contentWindowInsets = WindowInsets(0,0,0,0),
         topBar = {

@@ -14,8 +14,6 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.material3.CardDefaults
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -34,7 +32,7 @@ import coil.request.ImageRequest
 import com.tryden.breedly.R
 import com.tryden.breedly.domain.model.DogBreed
 import com.tryden.breedly.ui.common.FavoriteTag
-import com.tryden.breedly.ui.common.shimmerBrush
+import com.tryden.breedly.ui.theme.Gray90
 
 /**
  * Composable for dog breed item card.
@@ -48,7 +46,6 @@ fun ItemBreedCard(
     modifier: Modifier
 ) {
     val height = 200.dp
-    val showShimmer = remember { mutableStateOf(true) }
 
     Card(
         modifier = Modifier
@@ -70,11 +67,9 @@ fun ItemBreedCard(
                 alignment = Alignment.CenterStart,
                 contentDescription = breed.name,
                 modifier = Modifier
-                    .background(shimmerBrush(targetValue = 1300f, showShimmer = showShimmer.value))
                     .align(Alignment.TopCenter)
                     .size(height),
                 error = painterResource(id = R.drawable.ic_broken_image),
-                onSuccess = { showShimmer.value = false }
             )
             if (breed.isFavorite) {
                 FavoriteTag(
@@ -92,7 +87,7 @@ fun ItemBreedCard(
                         brush = Brush.verticalGradient(
                             colors = listOf(
                                 Color.Transparent,
-                                MaterialTheme.colorScheme.primary
+                                Gray90
                             )
                         )
                     ),

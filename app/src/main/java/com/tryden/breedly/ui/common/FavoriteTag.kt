@@ -13,6 +13,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.tryden.breedly.ui.theme.Pink90
 import com.tryden.breedly.utils.Constants.FAVORITE
 
 /**
@@ -20,7 +21,7 @@ import com.tryden.breedly.utils.Constants.FAVORITE
  */
 
 @Composable
-fun FavoriteTag(modifier: Modifier) {
+fun FavoriteTag(modifier: Modifier = Modifier) {
     ChipView(title = FAVORITE, colorResource = MaterialTheme.colorScheme.onTertiary)
 }
 

@@ -66,7 +66,7 @@ fun RowScope.BreedlyNavigationBarItem(
         colors = NavigationBarItemDefaults.colors(
             selectedIconColor = BreedlyNavigationDefaults.navigationSelectedItemColor(),
             unselectedIconColor = BreedlyNavigationDefaults.navigationContentColor(),
-            selectedTextColor = BreedlyNavigationDefaults.navigationSelectedItemColor(),
+            selectedTextColor = BreedlyNavigationDefaults.navigationContentColor(),
             unselectedTextColor = BreedlyNavigationDefaults.navigationContentColor(),
             indicatorColor = BreedlyNavigationDefaults.navigationIndicatorColor(),
         ),
