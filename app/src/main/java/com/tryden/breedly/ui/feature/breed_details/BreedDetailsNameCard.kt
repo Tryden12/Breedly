@@ -48,7 +48,7 @@ fun BreedDetailsNameCard(
             Text(
                 text = dogBreed.name,
                 color = MaterialTheme.colorScheme.onSurface,
-                style = MaterialTheme.typography.titleLarge,
+                style = MaterialTheme.typography.headlineSmall,
                 textAlign = TextAlign.Center,
                 modifier = modifier.padding(paddingValues)
             )

@@ -3,16 +3,17 @@ package com.tryden.breedly.ui.common
 import android.util.Log
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material.Text
-import androidx.compose.material.TopAppBar
+import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBar
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.TopAppBarColors
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.unit.dp
 import androidx.navigation.NavDestination
 import androidx.navigation.NavDestination.Companion.hierarchy
 import com.tryden.breedly.R
@@ -64,19 +65,29 @@ fun BreedlyBottomBar(
  * Default top bar for Breedly app.
  * This is used in place of other app bars to just display the app name as title.
  */
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun BreedlyDefaultTopAppBar(modifier: Modifier = Modifier) {
     Log.d("TopAppBar", "BreedlyDefaultTopAppBar used")
     TopAppBar(
         title = { Text(text = Constants.APP_NAME) },
-        backgroundColor = MaterialTheme.colorScheme.surface,
-        contentColor = MaterialTheme.colorScheme.onSurface,
-        elevation = 0.dp,
+        navigationIcon = { },
+        actions = { },
+        colors = TopAppBarColors(
+            containerColor = MaterialTheme.colorScheme.surface,
+            scrolledContainerColor = MaterialTheme.colorScheme.surface,
+            navigationIconContentColor = MaterialTheme.colorScheme.onSurface,
+            titleContentColor = MaterialTheme.colorScheme.onSurface,
+            actionIconContentColor = MaterialTheme.colorScheme.onSurface,
+        ),
+//        scrollBehavior = ,
+//        windowInsets =
         modifier = modifier.fillMaxWidth()
     )
 }
 
 /** Top bar for BreedsListScreen **/
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun BreedsListTopAppBar(
     title: String,
@@ -84,17 +95,25 @@ fun BreedsListTopAppBar(
 ) {
     TopAppBar(
         title = { Text(text = title) },
+        navigationIcon = { },
         actions = {
             // todo actions: search, filter, sort
         },
-        backgroundColor = MaterialTheme.colorScheme.surface,
-        contentColor = MaterialTheme.colorScheme.onSurface,
-        elevation = 0.dp,
+        colors = TopAppBarColors(
+            containerColor = MaterialTheme.colorScheme.surface,
+            scrolledContainerColor = MaterialTheme.colorScheme.surface,
+            navigationIconContentColor = MaterialTheme.colorScheme.onSurface,
+            titleContentColor = MaterialTheme.colorScheme.onSurface,
+            actionIconContentColor = MaterialTheme.colorScheme.onSurface,
+        ),
+//        scrollBehavior = ,
+//        windowInsets =
         modifier = modifier.fillMaxWidth()
     )
 }
 
 /** Top bar for FavoritesScreen **/
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun FavoritesTopAppBar(
     title: String,
@@ -102,18 +121,26 @@ fun FavoritesTopAppBar(
 ) {
     TopAppBar(
         title = { Text(text = title) },
+        navigationIcon = { },
         actions = {
-            // todo actions: edit
+            // todo actions: search, filter, sort
         },
-        backgroundColor = MaterialTheme.colorScheme.surface,
-        contentColor = MaterialTheme.colorScheme.onSurface,
-        elevation = 0.dp,
+        colors = TopAppBarColors(
+            containerColor = MaterialTheme.colorScheme.surface,
+            scrolledContainerColor = MaterialTheme.colorScheme.surface,
+            navigationIconContentColor = MaterialTheme.colorScheme.onSurface,
+            titleContentColor = MaterialTheme.colorScheme.onSurface,
+            actionIconContentColor = MaterialTheme.colorScheme.onSurface,
+        ),
+//        scrollBehavior = ,
+//        windowInsets =
         modifier = modifier.fillMaxWidth()
     )
 }
 
 
 /** Top bar for BreedsDetailsScreen **/
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun BreedsDetailsTopAppBar(
     title: String,
@@ -123,10 +150,6 @@ fun BreedsDetailsTopAppBar(
 ) {
     TopAppBar(
         title = { Text(text = title) },
-        backgroundColor = MaterialTheme.colorScheme.surface,
-        contentColor = MaterialTheme.colorScheme.onSurface,
-        elevation = 0.dp,
-        modifier = modifier,
         navigationIcon = {
             if (canNavigateBack) {
                 IconButton(onClick = navigateUp) {
@@ -136,11 +159,24 @@ fun BreedsDetailsTopAppBar(
                     )
                 }
             }
-        }
+        },
+        colors = TopAppBarColors(
+            containerColor = MaterialTheme.colorScheme.surface,
+            scrolledContainerColor = MaterialTheme.colorScheme.surface,
+            navigationIconContentColor = MaterialTheme.colorScheme.onSurface,
+            titleContentColor = MaterialTheme.colorScheme.onSurface,
+            actionIconContentColor = MaterialTheme.colorScheme.onSurface,
+        ),
+//        actions = { },
+//        scrollBehavior = ,
+//        windowInsets =
+        modifier = modifier.fillMaxWidth()
     )
 }
 
-private fun NavDestination?.isTopLevelDestinationInHierarchy(destination: TopLevelDestination) =
-    this?.hierarchy?.any {
-        it.route?.contains(destination.name, true) ?: false
+private fun NavDestination?.isTopLevelDestinationInHierarchy(destination: TopLevelDestination): Boolean {
+    Log.d("AppBars", "destination name: ${destination.route}")
+    return this?.hierarchy?.any {
+        it.route?.contains(destination.route, true) ?: false
     } ?: false
+}

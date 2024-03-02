@@ -32,8 +32,7 @@ fun FavoriteHeart(
     var isFavorite by remember { mutableStateOf(breed.isFavorite) }
 
     Icon(
-        tint = if (isFavorite) MaterialTheme.colorScheme.onTertiary
-        else MaterialTheme.colorScheme.onTertiary,
+        tint = MaterialTheme.colorScheme.onTertiary,
         imageVector =
         if (isFavorite) Icons.Filled.Favorite
         else Icons.Filled.FavoriteBorder,

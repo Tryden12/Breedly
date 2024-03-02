@@ -41,59 +41,59 @@ val Typography = Typography(
     ),
     bodyMedium = TextStyle(
         fontWeight = FontWeight.Normal,
-        fontSize = 16.sp,
+        fontSize = 14.sp,
         fontFamily = primaryFontFamily
     ),
     bodyLarge = TextStyle(
         fontWeight = FontWeight.Normal,
-        fontSize = 20.sp,
+        fontSize = 16.sp,
         fontFamily = primaryFontFamily
     ),
     titleSmall = TextStyle(
         fontWeight = FontWeight.Bold,
-        fontSize = 20.sp,
+        fontSize = 18.sp,
         fontFamily = primaryFontFamily
     ),
     titleMedium = TextStyle(
         fontWeight = FontWeight.Bold,
         letterSpacing = (.5).sp,
-        fontSize = 28.sp,
+        fontSize = 20.sp,
         fontFamily = primaryFontFamily,
         shadow = Shadow(color = Color.Black, offset = offset, blurRadius = 1f)
     ),
     titleLarge = TextStyle(
         fontWeight = FontWeight.Bold,
-        fontSize = 32.sp,
+        fontSize = 22.sp,
         fontFamily = primaryFontFamily
     ),
     headlineSmall = TextStyle(
-        fontWeight = FontWeight.Bold,
-        fontSize = 32.sp,
+        fontWeight = FontWeight.ExtraBold,
+        fontSize = 28.sp,
         fontFamily = primaryFontFamily
     ),
     headlineMedium = TextStyle(
         fontWeight = FontWeight.Bold,
-        fontSize = 36.sp,
+        fontSize = 30.sp,
         fontFamily = primaryFontFamily
     ),
     headlineLarge= TextStyle(
         fontWeight = FontWeight.Bold,
-        fontSize = 40.sp,
+        fontSize = 32.sp,
         fontFamily = primaryFontFamily
     ),
     labelSmall = TextStyle(
-        fontWeight = FontWeight.Bold,
+        fontWeight = FontWeight.SemiBold,
         fontSize = 11.sp,
         fontFamily = primaryFontFamily
     ),
     labelMedium = TextStyle(
-        fontWeight = FontWeight.Bold,
-        fontSize = 17.sp,
+        fontWeight = FontWeight.SemiBold,
+        fontSize = 14.sp,
         fontFamily = primaryFontFamily
     ),
     labelLarge = TextStyle(
-        fontWeight = FontWeight.Bold,
-        fontSize = 21.sp,
+        fontWeight = FontWeight.SemiBold,
+        fontSize = 16.sp,
         fontFamily = primaryFontFamily
     ),
     displaySmall = TextStyle(
