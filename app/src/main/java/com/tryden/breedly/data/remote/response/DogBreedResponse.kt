@@ -1,4 +1,4 @@
-package com.tryden.breedly.data.remote.dto
+package com.tryden.breedly.data.remote.response
 
 import com.squareup.moshi.Json
 import com.tryden.breedly.utils.Constants.LBS

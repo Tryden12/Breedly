@@ -1,10 +1,7 @@
 package com.tryden.breedly.data.repository
 
-import android.util.Log
 import com.tryden.breedly.data.local.source.LocalSource
-import com.tryden.breedly.data.remote.RemoteSource
-import com.tryden.breedly.data.remote.dto.DogBreedResponse
-import com.tryden.breedly.domain.DogBreedMapper
+import com.tryden.breedly.data.remote.source.RemoteSource
 import com.tryden.breedly.domain.model.DogBreed
 import com.tryden.breedly.utils.Resource
 import com.tryden.breedly.utils.networkBoundResource
@@ -19,7 +16,6 @@ import javax.inject.Inject
 class DataRepositoryImpl @Inject constructor(
     private val remoteSource: RemoteSource,
     private val localSource: LocalSource,
-    private val dogBreedMapper: DogBreedMapper
 ) : DataRepository {
 
     /**
@@ -40,10 +36,7 @@ class DataRepositoryImpl @Inject constructor(
             },
             saveFetchResult = {
                 localSource.deleteAll()
-                it.data?.let { listDto ->
-                    val list = listDto.map { dogBreedDto ->
-                        dogBreedMapper.buildFrom(dogBreedDto)
-                    }
+                it.data?.let { list ->
                     localSource.insertAllBreeds(list)
                 }
             },

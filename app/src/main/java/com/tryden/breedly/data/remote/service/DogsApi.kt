@@ -1,6 +1,6 @@
 package com.tryden.breedly.data.remote.service
 
-import com.tryden.breedly.data.remote.dto.DogBreedResponse
+import com.tryden.breedly.data.remote.response.DogBreedResponse
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query

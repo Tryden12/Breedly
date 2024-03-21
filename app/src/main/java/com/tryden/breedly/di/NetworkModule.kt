@@ -2,9 +2,10 @@ package com.tryden.breedly.di
 
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
-import com.tryden.breedly.data.remote.RemoteDataSource
-import com.tryden.breedly.data.remote.RemoteSource
+import com.tryden.breedly.data.remote.source.RemoteDataSource
+import com.tryden.breedly.data.remote.source.RemoteSource
 import com.tryden.breedly.data.remote.service.DogsApi
+import com.tryden.breedly.domain.DogBreedMapper
 import com.tryden.breedly.utils.Constants.BASE_URL
 import com.tryden.breedly.utils.MyInterceptor
 import dagger.Module
@@ -60,8 +61,8 @@ object NetworkModule {
 
     @Provides
     @Singleton
-    fun provideRemoteSource(api: DogsApi) : RemoteSource {
-        return RemoteDataSource(api)
+    fun provideRemoteSource(api: DogsApi, mapper: DogBreedMapper) : RemoteSource {
+        return RemoteDataSource(api, mapper)
     }
 
 }

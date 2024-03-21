@@ -1,6 +1,6 @@
 package com.tryden.breedly.domain
 
-import com.tryden.breedly.data.remote.dto.DogBreedResponse
+import com.tryden.breedly.data.remote.response.DogBreedResponse
 import com.tryden.breedly.domain.model.DogBreed
 import javax.inject.Inject
 
