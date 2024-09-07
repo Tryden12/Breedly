@@ -13,7 +13,7 @@ import androidx.compose.ui.unit.dp
 fun BreedlyDivider() {
     Divider(
         color = MaterialTheme.colorScheme.primary,
-        thickness = .5.dp,
+        thickness = 1.dp,
         startIndent = 75.dp,
     )
 }
