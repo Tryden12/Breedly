@@ -1,0 +1,85 @@
+package com.tryden.breedly.data.repository
+
+import com.tryden.breedly.data.local.source.LocalSource
+import com.tryden.breedly.data.remote.source.RemoteSource
+import com.tryden.breedly.domain.model.DogBreed
+import com.tryden.breedly.utils.Resource
+import com.tryden.breedly.utils.networkBoundResource
+import kotlinx.coroutines.flow.Flow
+import javax.inject.Inject
+
+/**
+ * This is the Repository class which fetches the data from the remote source and emits the list to
+ * the domain layer.
+ * In the domain layer, the dto models will be mapped to UI models.
+ */
+class DataRepositoryImpl @Inject constructor(
+    private val remoteSource: RemoteSource,
+    private val localSource: LocalSource,
+) : DataRepository {
+
+    /**
+     * We use the networkBoundResource() inline to function to flow on Dispatchers.IO
+     * to do the following in order:
+     * (1) [query] fetch from local db
+     * (2a) [fetch] fetch from remote (if needed)
+     * (2b) [saveFetchResult] map response (if fetched) from remote and save to local
+     * (3) emit flow
+     */
+    override fun getAllBreeds(minLifeExpectancy: Int): Flow<Resource<List<DogBreed>>> {
+        return networkBoundResource(
+            query = {
+                localSource.getAllBreeds()
+            },
+            fetch = {
+                remoteSource.getBreeds(minLifeExpectancy)
+            },
+            saveFetchResult = {
+                localSource.deleteAll()
+                it.data?.let { list ->
+                    localSource.insertAllBreeds(list)
+                }
+            },
+            shouldFetch = { breedList ->
+                breedList.isEmpty()
+            }
+        )
+    }
+
+    override suspend fun getDogBreed(id: Int): DogBreed {
+        return localSource.getDogBreed(id)
+    }
+
+    override fun getFavoriteBreeds(): Flow<List<DogBreed>> {
+        return localSource.getFavoriteBreeds()
+    }
+
+    override suspend fun updateBreed(id: Int, isFavorite: Boolean) {
+        localSource.updateBreed(id, isFavorite)
+    }
+
+    /**
+     * We use flow on Dispatchers.IO thread to fetch the search of dog breed list data.
+     */
+//    override fun searchBreeds(name: String): Flow<List<DogBreed>> {
+//        // todo
+//    }
+//
+//
+//
+//    override suspend fun insertBreed(dogBreed: DogBreed) {
+//        // todo
+//    }
+//
+
+//
+//    override suspend fun deleteBreed(dogBreed: DogBreed) {
+//        // todo
+//    }
+//
+//    override suspend fun deleteAll() {
+//        // todo
+//    }
+
+
+}
