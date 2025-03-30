@@ -7,7 +7,7 @@ Breedly is a small Kotlin app to display some core fundamentals of Android devel
 * Light Mode & Dark Mode support
 * Compose UI
 
-The purpose of this app is to showcase my understanding of Room library, dependency injection, and Epoxy RecyclerView.
+The purpose of this app is to showcase my understanding of Room library, dependency injection, and Jetpack Compose UI.
 
 Minimum SDK Version: 24
 Compile SDK Version: 33
